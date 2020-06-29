@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'FrontController@index');
-Route::get('/home', 'FrontController@index')->name('home');
+Route::get('/index', 'FrontController@index')->name('home');
 
 Route::get('/produtos', 'FrontController@produtos')->name('produtos');
 
