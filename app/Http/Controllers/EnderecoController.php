@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Produto;
-use Gloudemans\Shoppingcart\Cart as ShoppingcartCart;
+use App\Endereco;
+
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class CarrinhoController extends Controller
+class EnderecoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,6 @@ class CarrinhoController extends Controller
     public function index()
     {
         //
-        $cartItems = Cart::content();
-
-        return view('carrinho.index',compact('cartItems'));
     }
 
     /**
@@ -27,10 +25,9 @@ class CarrinhoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($produtoid)
+    public function create()
     {
         //
-
     }
 
     /**
@@ -41,7 +38,20 @@ class CarrinhoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'endereco' => 'required',
+            'bairro' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
+            'numero' => 'required',
+            'CEP' => 'required',
+            'telefone' => 'required'
+        ]);
+        Auth::user()->endereco()->create($request->all());
+
+        return 'Pedido finalizado';
+
+
     }
 
     /**
@@ -63,10 +73,7 @@ class CarrinhoController extends Controller
      */
     public function edit($id)
     {
-
-        $produto = Produto::find($id);
-        Cart::add($id,$produto->nome,1,$produto->valor);
-        return redirect()->route('carrinho.index');
+        //
     }
 
     /**
@@ -78,8 +85,7 @@ class CarrinhoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Cart::update($id,$request->qty);
-        return back();
+        //
     }
 
     /**

@@ -41,25 +41,12 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'nome'=>'required',
-            'valor'=>'required',
-            'descricao'=>'required',
-            'image'=>'image|mime:png,jpg,jpeg|max;10000',
-            'categoria'=>'required ',
-            ],[
-            'nome.required' => 'É necessário digitar um nome para o produto',
-            'valor' => 'É necessário digitar o preço do produto',
-            'descricao.required' => 'É necessário descrever o produto',
-            'categoria.required' => 'É necessário selecionar a categoria do produto',
-            'image.image' => 'Selecione uma imagem',
-            'image.uploaded' => 'Selecione uma imagem de no máximo 10MB',
 
-        ]);
 
 
         $formInput = $request->except('image');
         $image=$request->image;
+        $formInput['valor'] = str_replace(['R$','.',','],['','','.'], $formInput['valor']);
         if($image){
             $imageName=$image->getClientOriginalName();
             $image->move('images',$imageName);
@@ -67,6 +54,7 @@ class ProdutosController extends Controller
 
         }
         //
+
         Produto::create($formInput);
         return back()->with('success', 'Produto criado com sucesso');
     }

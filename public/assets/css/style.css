@@ -3668,8 +3668,9 @@ input:focus {
 
 /* line 192, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right .favorit-items::before {
+  counter-reset: qtdecarrinho var(--x);
   position: absolute;
-  content: "02";
+  content: counter(qtdecarrinho);
   width: 25px;
   height: 25px;
   background: #ffa500;
@@ -3786,9 +3787,7 @@ input:focus {
 }
 
 /* line 300, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
-.header-sticky ul li a {
-  padding: 10px 19px;
-}
+
 
 /* line 308, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .slicknav_menu .slicknav_icon-bar {
@@ -4386,6 +4385,7 @@ input:focus {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    height: 100px;
 }
 
 /* line 30, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_latest_products.scss */
@@ -11194,9 +11194,7 @@ input:focus {
 }
 
 /* line 1400, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
-.checkout_area .form-control {
-  border: 1px solid #eee;
-}
+
 
 /* line 1403, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
 .checkout_area .form-control :focus {
@@ -13034,8 +13032,10 @@ input:focus {
 }
 
 .text-bottom {
+
     padding-bottom: 10px;
     padding-top: 10px;
+
   }
 .add-to-cart{
     margin-bottom: 25px;
@@ -13054,5 +13054,54 @@ s
     color: #0b1c39;
   }
 
+  #quantidade{
+    font-family: "Poppins", sans-serif;
+    color: #506172;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: normal;
+  }
+.icone-carrinho{
+    width: 10px;
+}
 
+
+/* line 36, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_button.scss */
+.btn_1:hover {
+  background-color: #fff;
+  color: #2577fd;
+}
+
+.btn_cart {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #2577fd;
+    border: 2px solid #2577fd;
+    font-size: 15px;
+    font-weight: 500;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    text-transform: capitalize;
+    color: #fff;
+  }
+
+  /* line 36, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_button.scss */
+  .btn_cart:hover {
+    background-color: #fff;
+    color: #2577fd;
+  }
+
+  .titulo {
+    font-size: 0.9em;
+    line-height: 1.17em;
+    height: 2.34em;
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px
+  }
 /*# sourceMappingURL=style.css.map */

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>eComásda </title>
+        <title> </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
@@ -50,7 +50,7 @@
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
                                 <div class="logo">
-                                  <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                  <a href="{{ url('/') }}"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-8 col-md-7 col-sm-5">
@@ -80,8 +80,8 @@
                                      </li>
 
                                     <li>
-                                        <div class="favorit-items">
-                                            <i class="fas fa-shopping-cart"></i>
+                                        <div class="favorit-items" style="--x:  {{Cart::count()}}">
+                                            <a href="{{ route('carrinho.index') }}"><i class="fas fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
                                    <li class="d-none d-lg-block"> <a style="background-color: #ffa500;" href="#" class="btn header-btn">Login</a></li>

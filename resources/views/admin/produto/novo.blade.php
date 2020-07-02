@@ -28,12 +28,12 @@
                 {!! Form::select('categoria_id',$categorias, null, array('class'=>'form-control', 'placeholder'=>'Selecione uma categoria' )) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('descricao', 'Nome') !!}
+                {!! Form::label('descricao', 'Descrição') !!}
                 {!! Form::text('descricao', null, array('class'=>'form-control')) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('valor', 'Valor') !!}
-                {!! Form::text('valor', null, array('class'=>'form-control')) !!}
+                {!! Form::number('valor', null, array('class'=>'form-control')) !!}
             </div>
 
 

@@ -75,11 +75,11 @@
                             @foreach ($chunk as $produto)
 
 
-                            <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="col-xl-3 col-lg-3 col-md-2">
                                 <div class="single-product mb-60">
 
                                     <div class="product-caption text-bottom">
-                                        <h3>{{$produto->nome}}</h3>
+                                        <p class="titulo">{{$produto->nome}}</p>
                                     </div>
                                     <div class="product-img">
                                         <img src="{{ url('images', $produto->image) }}" alt="">
