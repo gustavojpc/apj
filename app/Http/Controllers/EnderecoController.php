@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Endereco;
-
+use App\Pedidos;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,8 +48,8 @@ class EnderecoController extends Controller
             'telefone' => 'required'
         ]);
         Auth::user()->endereco()->create($request->all());
-
-        return 'Pedido finalizado';
+        Pedidos::Createorder();
+        return redirect('/')->with('success', 'Pedido finalizado com sucesso');
 
 
     }

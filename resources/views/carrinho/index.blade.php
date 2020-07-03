@@ -5,6 +5,7 @@
     <div class="container">
       <div class="cart_inner">
         <div class="table-responsive">
+
           <table class="table">
             <thead>
               <tr>
@@ -17,7 +18,7 @@
             </thead>
             <tbody>
 
-                @foreach ($cartItems as $cartItem)
+                @forelse ($cartItems as $cartItem)
 
 
                    <tr>
@@ -35,7 +36,7 @@
                           <div class="product_count">
                             {!! Form::open(['route' => ['carrinho.update',$cartItem->rowId] , 'method' => 'PUT']) !!}
 
-                                <input style="border: 1px solid" class="input-number" name="qty" id="quantidade" type="text" value="{{$cartItem->qty}}" min="0" max="10">
+                                <input style="border: 1px solid" name="qty" type="number" value="{{$cartItem->qty}}" min="0" max="10">
 
 
                             <button type="submit" class="btn_cart small">
@@ -60,42 +61,52 @@
                       </tr>
 
 
-                @endforeach
+                @empty
+                    <div class="alert alert-danger" role="alert">
+                      <h4 class="alert-heading"></h4>
+                      <p>Sem produtos no carrinho</p>
+                      <p class="mb-0"></p>
+                    </div>
+                @endforelse
+
+                @if (count($cartItems)>0)
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    Subtotal
+                    </td>
+                    <td>
+                        R$ {{Cart::subtotal()}}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    Frete
+                    </td>
+                    <td>
+                        {{Cart::tax()}}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    Total
+                    </td>
+                    <td>
+                        R$ {{Cart::total()}} <td>
+                </tr>
+                @endif
 
 
 
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  Subtotal
-                </td>
-                <td>
-                    R$ {{Cart::subtotal()}}
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  Frete
-                </td>
-                <td>
-                    {{Cart::tax()}}
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                  Total
-                </td>
-                <td>
-                    R$ {{Cart::total()}} <td>
-              </tr>
+
 
             </tbody>
           </table>

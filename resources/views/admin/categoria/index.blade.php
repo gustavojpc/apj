@@ -16,21 +16,17 @@
     <table class="table">
         <thead>
             <tr>
-                <td><b>Nome do produto</b> </td>
-                <td><b>Valor</b></td>
-                <td><b> Descrição</b></td>
-                <td><b>Categoria do produto</b></td>
+                <td><b>Nome da categoria</b> </td>
+
                 <td><b>Ações</b></td>
 
             </tr>
         </thead>
         <tbody>
-            @forelse ($produtos as $produto)
+            @forelse ($categorias as $categoria)
                 <tr>
-                        <td>{{ $produto->nome }}</td>
-                        <td>{{ $produto->valor }}</td>
-                        <td>{{ $produto->descricao }}</td>
-                        <td>{{$produto->categoria->nome}}</td>
+                        <td>{{ $categoria->nome }}</td>
+
                         <td style="font-color: black"><i class="fa fa-trash" style="padding-right: 5px; color: red" aria-hidden="true"></i>   <i class="fas fa-edit    "></i></td>
                     </tr>
             @empty

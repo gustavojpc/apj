@@ -1,12 +1,20 @@
 @extends('front.layout.main')
+@section('title','APJ | Páginal Inicial')
 @section('content')
     <main>
-
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                    Session::forget('success');
+                @endphp
+            </div>
+            @endif
         <!-- slider Area Start -->
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="slider-active">
-                <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
+                <div class="single-slider slider-height" data-background="none">
                     <div class="container">
                         <div class="row d-flex align-items-center justify-content-between">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
@@ -16,41 +24,18 @@
                             </div>
                             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
                                 <div class="hero__caption">
-                                    <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
-                                    <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
-                                    <p data-animation="fadeInRight" data-delay=".8s">Best Cloth dddCollection By 2020!</p>
+                                    <h1 data-animation="fadeInRight" data-delay=".6s">Comercio<BR>Solidário</h1>
+                                    <p data-animation="fadeInRight" data-delay=".8s">A Economia Popular Solidária (EPS) é uma estratégia de desenvolvimento sustentável e solidário</p>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                        <a href="{{ url('/produtos') }}" class="btn hero-btn">Compre agora</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
-                    <div class="container">
-                        <div class="row d-flex align-items-center justify-content-between">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
-                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="assets/img/hero/hero_man.png" alt="">
-                                </div>
-                            </div>
-                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
-                                <div class="hero__caption">
-                                    <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
-                                    <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
-                                    <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
-                                    <!-- Hero-btn -->
-                                    <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <!-- Category Area End-->
         <!-- Latest Products Start -->
@@ -96,7 +81,7 @@
                                         </div>
                                     </div>
                                     <a href="{{route('carrinho.edit',$produto->id)}}" class="button expanded add-to-cart">
-                                        Add to Cart
+                                       Comprar <i class="fas fa-cart-plus    "></i>
                                     </a>
                                 </div>
                             </div>
@@ -127,48 +112,7 @@
 
                 </div>
 
-                <div class="row justify-content-between">
 
-                    <div class="col-lg-6">
-                        <div class="feature_part_tittle">
-                            <h3>Credibly innovate granular
-                            internal or organic sources
-                            whereas standards.</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="feature_part_content">
-                            <p>Seamlessly empower fully researched growth strategies and interoperable internal or “organic” sources. Credibly innovate granular internal or “organic” sources whereas high standards in web-readiness.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single_feature_part">
-                            <img src="assets/img/icon/feature_icon_1.svg" alt="#">
-                            <h4>Credit Card Support</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single_feature_part">
-                            <img src="assets/img/icon/feature_icon_2.svg" alt="#">
-                            <h4>Online Order</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single_feature_part">
-                            <img src="assets/img/icon/feature_icon_3.svg" alt="#">
-                            <h4>Free Delivery</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single_feature_part">
-                            <img src="assets/img/icon/feature_icon_4.svg" alt="#">
-                            <h4>Product with Gift</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
         <!-- feature part end -->
 

@@ -20,7 +20,7 @@ class Pedidos extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Createorder()
+    public static function Createorder()
     {
         $user=Auth::user();
         $pedido=$user->Pedidos()->create([

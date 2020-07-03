@@ -30,9 +30,7 @@ Route::resource('/carrinho', 'CarrinhoController');
 Route::get('/logout', 'auth\LoginController@logout');
 
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    })->name('admin.index');
+    Route::get('/', 'PedidosController@Pedidos')->name('admin.index');
 
     Route::resource('produto', 'ProdutosController');
     Route::resource('categoria', 'CategoriasController');
