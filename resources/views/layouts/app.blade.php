@@ -45,7 +45,7 @@
                                 <div class="main-menu text-center d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a></li>
+                                            <li><a href="index.html"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt=""></a></li>
 
                                         </ul>
                                     </nav>
@@ -61,20 +61,7 @@
     </header>
 
     <!-- slider Area Start-->
-    <div class="slider-area ">
-        <!-- Mobile Menu -->
-        <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2>Login</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- slider Area End-->
 
     @yield('content')
