@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>product list</h2>
+                            <h2>Produtos</h2>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="product_list">
+
                         <div class="row">
 
                             @forelse ($produtos->chunk(4) as $chunk)
@@ -64,7 +64,7 @@
                             <div class="col-lg-4 col-sm-3">
                                 <div class="single_product_item text-center">
                                     <h3> <a href="single-product.html">{{$produto->nome}}</a> </h3>
-                                    <img src="{{ url('images', $produto->image) }}" alt="" class="img-fluid">
+                                    <img src="{{ url('images', $produto->image) }}" alt="" class="img-fluid" style="height: 150px">
 
                                     <p>R$ {{$produto->valor}}</p>
                                     <a href="{{url('/detalhe_produto')}}" class="button expanded add-to-cart">
@@ -74,13 +74,15 @@
                             </div>
 
 
+
+
                             @endforeach
 
                             @empty
                                 <h4>Sem produtos cadastrados</h4>
                             @endforelse
 
-                    </div>
+
                 </div>
             </div>
         </div>

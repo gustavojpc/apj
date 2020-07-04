@@ -18,6 +18,7 @@ class CarrinhoController extends Controller
     {
         //
         $cartItems = Cart::content();
+
         return view('carrinho.index',compact('cartItems'));
     }
 
@@ -64,7 +65,7 @@ class CarrinhoController extends Controller
     {
 
         $produto = Produto::find($id);
-        Cart::add($id,$produto->valor,1,$produto->valor);
+        Cart::add($id,$produto->nome,1,$produto->valor);
         return redirect()->route('carrinho.index');
     }
 
@@ -77,7 +78,8 @@ class CarrinhoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Cart::update($id,$request->qty);
+        return back();
     }
 
     /**

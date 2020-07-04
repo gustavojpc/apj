@@ -26,14 +26,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/carrinho', 'CarrinhoController');
+
 Route::get('/logout', 'auth\LoginController@logout');
 
-Route::group(['prefix' => 'admin','middleware'=>'auth'], function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    })->name('admin.index');
+Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
+    Route::get('/', 'PedidosController@Pedidos')->name('admin.index');
 
     Route::resource('produto', 'ProdutosController');
-
     Route::resource('categoria', 'CategoriasController');
+    Route::get('pedidos/{type?}', 'PedidosController@Pedidos');
 });
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/entrega', 'CheckoutController@Entrega') ->name('checkout.entrega');
+});
+
+//Route::get('/checkout', 'CheckoutController@Passo1');
+
+Route::resource('endereco', 'EnderecoController');
+

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>eComásda </title>
+        <title>@yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/themify-icon.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
 
 
    </head>
@@ -48,9 +49,10 @@
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <!-- Logo -->
-                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
                                 <div class="logo">
                                   <a href="index.html"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt=""></a>
+
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-8 col-md-7 col-sm-5">
@@ -63,13 +65,27 @@
                                             <li><a href="Galeria.html">Galeria</a></li>
                                             <li><a href="Galeria.html">Comunicados</a></li>
                                             <li><a href="Galeria.html">Contato</a></li>
+                                            @auth
+                                                <li class="show-login"><a href="Galeria.html">{{Auth::user()->name}}</a></li>
+                                                <ul class="submenu">
+                                                    <li><a href="login.html">Login</a></li>
+                                                    <li><a href="cart.html">Card</a></li>
+
+                                                </ul>
+                                            @endauth
+
+                                            @guest
+
+                                            @endguest
+
 
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-3 col-md-3 col-sm-3 fix-card">
-                                <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
+                                <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between padding-modify">
+
                                     <li class="d-none d-xl-block">
                                         <div class="form-box f-right " style="min-width: 250px;">
                                             <input type="text" name="Search" placeholder="Busque produtos">
@@ -80,14 +96,31 @@
                                      </li>
 
                                     <li>
-                                        <div class="favorit-items">
-                                            <i class="fas fa-shopping-cart"></i>
+                                        <div class="favorit-items" style="--x:  {{Cart::count()}}">
+                                            <a href="{{ route('carrinho.index') }}"><i class="fas fa-shopping-cart"></i></a>
                                         </div>
+                                    </li><li>
+                                        <div class="dropdown hide-button">
+                                            @auth
+                                                <button class="btn header-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" fon>
+                                                {{Auth::user()->name}}
+                                              </button>
+                                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
+
+                                              </div>
+                                            @endauth
+                                            @guest
+                                                <li class="d-none d-lg-block"> <a href="{{ route('login') }}" class="btn header-btn">Login</a></li>
+                                                <li class="d-none d-lg-block"> <a href="{{ route('register') }}" class="btn header-btn">Registro</a></li>
+                                            @endguest
+                                          </div>
+
                                     </li>
-                                   <li class="d-none d-lg-block"> <a style="background-color: #ffa500;" href="#" class="btn header-btn">Login</a></li>
-                                   <li class="d-none d-lg-block"> <a style="background-color: #ffa500;" href="#" class="btn header-btn">Cadastro</a></li>
+
                                 </ul>
                             </div>
+
                             <!-- Mobile Menu -->
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>

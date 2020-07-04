@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Categoria;
+use App\Endereco;
+use App\Pedidos;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class CategoriasController extends Controller
+class EnderecoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,6 @@ class CategoriasController extends Controller
     public function index()
     {
         //
-        $categorias=Categoria::all();
-        return view('admin.categoria.index',compact('categorias'));
     }
 
     /**
@@ -27,7 +28,6 @@ class CategoriasController extends Controller
     public function create()
     {
         //
-        return view('admin.categoria.novo');
     }
 
     /**
@@ -38,11 +38,20 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $formInput = $request->all();
+        $this->validate($request,[
+            'endereco' => 'required',
+            'bairro' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
+            'numero' => 'required',
+            'CEP' => 'required',
+            'telefone' => 'required'
+        ]);
+        Auth::user()->endereco()->create($request->all());
+        Pedidos::Createorder();
+        return redirect('/')->with('success', 'Pedido finalizado com sucesso');
 
-        Categoria::create($formInput);
-        return redirect()->route('admin.index');
+
     }
 
     /**
