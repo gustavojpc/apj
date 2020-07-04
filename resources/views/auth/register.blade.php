@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
+<!--================login_part Area =================-->
+<div class="container" style="margin-bottom: 60px">
+    <div class="row" id="secao_registro" >
+        <div class="col-md-6" id="formulario_registro">
+                <h3>
+                    Junte-se a nós ao fazer o registro abaixo! </h3>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -63,15 +64,27 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit" class="btn_3" id="cbutton_register">
+                                    {{ __('Registrar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6" id="aside_create-acount">
+            <div class="login_part_text text-center" style="padding-bottom: 0">
+                <div class="login_
+                part_text_iner" >
+                    
+                    <h2>Já tem uma conta?!</h2>
+                    <p>Então entre na sua conta por aqui!</p>
+                    <a href="#" class="btn_3" id="button_registro">Registrar</a>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 @endsection

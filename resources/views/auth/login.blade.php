@@ -4,24 +4,15 @@
 
 
 <!--================login_part Area =================-->
-<section class="login_part section_padding ">
+<section class="login_part section_padding " style="margin-bottom: 60px ">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-6">
-                <div class="login_part_text text-center">
-                    <div class="login_part_text_iner">
-                        <h2>New to our Shop?</h2>
-                        <p>There are advances being made in science and technology
-                            everyday, and a good example of this is the</p>
-                        <a href="#" class="btn_3">Create an Account</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="login_part_form">
+        <div class="row align-items-center" id="secao_login" >
+            
+            <div class="col-lg-6 col-md-6" style="padding-bottom: 0">
+                <div class="login_part_form" id="login_part_form">
                     <div class="login_part_form_iner">
-                        <h3>Welcome Back ! <br>
-                            Please Sign in now</h3>
+                        <h3>Bem vindo de volta! <br>
+                            Porfavor, entre agora</h3>
                         <form class="row contact_form" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="col-md-12 form-group p_star">
@@ -51,7 +42,7 @@
                                     </label>
                                 </div>
                                 <button type="submit" value="submit" class="btn_3">
-                                    log in
+                                    Entrar
                                 </button>
                                 @if (Route::has('password.request'))
                                     <a class="lost_pass" href="{{ route('password.request') }}">
@@ -61,6 +52,18 @@
 
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_text text-center" style="padding-bottom: 0" id="aside_login">
+                    <div class="login_
+                    part_text_iner" >
+                        
+                        <h2>É novo aqui?!</h2>
+                        <p>Então não perca tempo e faça seu cadastro por aqui!</p>
+                        <a href="#" class="btn_3" id="button_registro">Registrar</a>
                     </div>
                 </div>
             </div>
