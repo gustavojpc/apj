@@ -15,7 +15,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}} <b
                                             class="caret"></b></a>
-                                <ul class="dropdown-menu animated fadeInUp">
+                                <ul class="dropdown-menu">
                                     <li><a href="{{url('/')}}">Front End</a></li>
                                     <li><a href="{{url('/logout')}}">Logout</a></li>
                                 </ul>

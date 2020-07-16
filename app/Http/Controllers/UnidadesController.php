@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Endereco;
-use App\Pedidos;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Unidade;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class EnderecoController extends Controller
+class UnidadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,6 +15,8 @@ class EnderecoController extends Controller
     public function index()
     {
         //
+        $unidades = Unidade::all();
+        return view ('admin.unidades.index',compact('unidades'));
     }
 
     /**
@@ -28,6 +27,8 @@ class EnderecoController extends Controller
     public function create()
     {
         //
+
+        return view('admin.unidades.novo');
     }
 
     /**
@@ -38,12 +39,11 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
+        //
+        $formInput = $request -> all();
+        Unidade::create($formInput);
 
-        Auth::user()->endereco()->create($request->all());
-        Pedidos::Createorder();
-        return redirect('/')->with('success', 'Pedido finalizado com sucesso');
-
-
+        return view('admin.unidades.novo')->with('success', 'Produto criado com sucesso');
     }
 
     /**

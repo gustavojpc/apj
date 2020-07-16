@@ -26,117 +26,109 @@
       <div class="billing_details">
         <div class="row">
           <div class="col-lg-8">
-            <p>Dados de entrega</p>
-
-            {!! Form::open(['route' => 'endereco.store', 'method' => 'post']) !!}
-            {!! Form::label('endereco', 'Endereço') !!}
-            {!! Form::text('endereco',null, array('class'=>'form-control')) !!}
-
-            {!! Form::label('complemento', 'Complemento') !!}
-            {!! Form::text('complemento',null, array('class'=>'form-control')) !!}
-
-            {!! Form::label('numero', 'Número') !!}
-            {!! Form::number('numero',null, array('class'=>'form-control')) !!}
-
-            {!! Form::label('bairro', 'Bairro') !!}
-            {!! Form::text('bairro',null, array('class'=>'form-control')) !!}
-
-            {!! Form::label('telefone', 'Telefone') !!}
-            {!! Form::text('telefone',null, array('class'=>'form-control')) !!}
-
-            {!! Form::label('CEP', 'CEP') !!}
-            {!! Form::text('CEP',null, array('class'=>'form-control')) !!}
-
-            {!! Form::label('cidade', 'Cidade') !!}
-            {!! Form::text('cidade',null, array('class'=>'form-control')) !!}
-
-            {!! Form::label('estado', 'Estado') !!}
-            {!! Form::text('estado',null, array('class'=>'form-control')) !!}
 
 
-            {!! Form::label('referencia', 'Ponto de Referência') !!}
-            {!! Form::text('referencia',null, array('class'=>'form-control')) !!}
-
-            {!! Form::submit('Salvar', array('class' => 'btn-sucess')) !!}
 
 
-            {!! Form::close() !!}
+
+            @if (is_null($ultimoendereco))
+                {!! Form::open(['route'=>'endereco.store','method'=>'post']) !!}
+            @endif
+                {!! Form::model($ultimoendereco,['route'=>'endereco.store','method'=>'post']) !!}
+
+            <div class="row">
+                <div class="col-lg-12" style="padding-top: 30px">
+                    <h2>Dados de entrega</h2>
+                </div>
+                <div class="col-lg-12 text-bottom">
+                    {!! Form::label('endereco', 'Rua') !!}
+                    {!! Form::text('endereco',null,['class'=>'form-control text-bottom']) !!}
+                </div>
+
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('complemento', 'Complemento') !!}
+                    {!! Form::text('complemento',null,['class'=>'form-control']) !!}
+                </div>
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('bairro', 'Bairro') !!}
+                    {!! Form::text('bairro',null,['class'=>'form-control']) !!}
+                </div>
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('cidade', 'Cidade') !!}
+                    {!! Form::text('cidade',null,['class'=>'form-control']) !!}
+                </div>
+
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('estado', 'Estado') !!}
+                    {!! Form::text('estado',null,['class'=>'form-control']) !!}
+                </div>
+
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('numero', 'Numero') !!}
+                    {!! Form::text('numero',null,['class'=>'form-control']) !!}
+                </div>
+
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('CEP', 'CEP') !!}
+                    {!! Form::text('CEP',null,['class'=>'form-control']) !!}
+                </div>
 
 
+
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('referencia', 'Ponto de referência') !!}
+                    {!! Form::text('referencia',null,['class'=>'form-control']) !!}
+                </div>
+
+                <div class="col-lg-4 text-bottom">
+                    {!! Form::label('telefone', 'Telefone') !!}
+                    {!! Form::text('Telefone',null,['class'=>'form-control']) !!}
+
+
+                </div>
+                <div class="col-lg-12">
+                    {!! Form::submit('Finalizar pedido',['class'=>'genric-btn primary']) !!}
+                </div>
+            </div>
           </div>
           <div class="col-lg-4">
             <div class="order_box">
-              <h2>Your Order</h2>
+              <h2>Resumo do pedido</h2>
               <ul class="list">
                 <li>
-                  <a href="#">Product
+                  <a >Produto
                     <span>Total</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#">Fresh Blackberry
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Fresh Tomatoes
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Fresh Brocoli
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-              </ul>
-              <ul class="list list_2">
-                <li>
-                  <a href="#">Subtotal
-                    <span>$2160.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Shipping
-                    <span>Flat rate: $50.00</span>
-                  </a>
-                </li>
+
+                @foreach ($cartItems as $cartItem)
+                    <li>
+                        <a>
+                        {{$cartItem->name}}
+                        <span class="middle">x {{$cartItem->qty}}</span>
+                        <span class="last">R$ {{$cartItem->price}}</span>
+                    </a>
+                    </li>
+                @endforeach
+
+
+
+
+
                 <li>
                   <a href="#">Total
-                    <span>$2210.00</span>
+                    <span>R$ {{Cart::total()}}</span>
                   </a>
                 </li>
               </ul>
               <div class="payment_item">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option5" name="selector" />
-                  <label for="f-option5">Check payments</label>
-                  <div class="check"></div>
-                </div>
+
                 <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
+                  O pagamento da compra é feito durante a entrega do pedido,
+                  você receberá um e-mail confirmando os dados da compra.
                 </p>
               </div>
-              <div class="payment_item active">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option6" name="selector" />
-                  <label for="f-option6">Paypal </label>
-                  <img src="img/product/single-product/card.jpg" alt="" />
-                  <div class="check"></div>
-                </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
-                </p>
-              </div>
-              <div class="creat_account">
-                <input type="checkbox" id="f-option4" name="selector" />
-                <label for="f-option4">I’ve read and accept the </label>
-                <a href="#">terms & conditions*</a>
-              </div>
+
 
             </div>
           </div>

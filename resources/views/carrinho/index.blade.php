@@ -36,7 +36,7 @@
                           <div class="product_count">
                             {!! Form::open(['route' => ['carrinho.update',$cartItem->rowId] , 'method' => 'PUT']) !!}
 
-                                <input style="border: 1px solid" name="qty" type="number" value="{{$cartItem->qty}}" min="0" max="10">
+                                <input style="border: 1px solid" name="qty" type="text" value="{{$cartItem->qty}}" min="0" max="10">
 
 
                             <button type="submit" class="btn_cart small">

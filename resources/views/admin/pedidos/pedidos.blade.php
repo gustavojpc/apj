@@ -20,8 +20,13 @@
             <thead>
                 <tr>
                     <th>Cliente: {{ $pedido->user->name}}</th>
-                    <th>Estado: Pendente</th>
-                    <th><button type="button" class="btn btn-primary">Entregar pedido</button></th>
+                <th>Hora do pedido: {{$pedido->created_at->format('H:i:s')}}</th>
+                    @if ($pedido->entregue==0)
+                        <th><a href="pedidos/{{$pedido->id}}/entregar"><button type="button" class="btn btn-primary">Entregar pedido</button></a></th>
+                    @else
+                        <th><button type="button" class="btn btn-primary">Pedido entregue <i class="fas fa-check"></i></button></th>
+                    @endif
+
                 </tr>
             </thead>
 

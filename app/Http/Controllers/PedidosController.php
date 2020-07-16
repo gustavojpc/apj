@@ -10,14 +10,19 @@ class PedidosController extends Controller
     //
     public function Pedidos($type='')
     {
-        if ($type='pendentes') {
-            $pedidos=Pedidos::where('entregue','0')->get();
-        }elseif ($type='entregues') {
-            $pedidos=Pedidos::where('entregue','1')->get();
-        }else{
-            $pedidos=Pedidos::all();
-        }
+
+
+        $pedidos=Pedidos::all();
+
 
         return view('admin.pedidos.pedidos',compact('pedidos'));
     }
+
+    public function Entregar($id)
+    {
+        $pedidos=Pedidos::findOrFail($id);
+        $pedidos->update(['entregue'=>'1']);
+        return back();
+    }
+
 }

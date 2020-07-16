@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Categoria;
 use App\Produto;
 use App\Providers;
-
+use App\Unidade;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
@@ -30,7 +30,8 @@ class ProdutosController extends Controller
     {
         //
         $categorias=Categoria::pluck('nome','id');
-        return view('admin.produto.novo',compact('categorias'));
+        $unidades=Unidade::pluck('descricao','id');
+        return view('admin.produto.novo',compact('categorias','unidades'));
     }
 
     /**
@@ -45,6 +46,7 @@ class ProdutosController extends Controller
 
 
         $formInput = $request->except('image');
+
         $image=$request->image;
         $formInput['valor'] = str_replace(['R$','.',','],['','','.'], $formInput['valor']);
         if($image){
@@ -78,7 +80,7 @@ class ProdutosController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -91,6 +93,27 @@ class ProdutosController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $produto = Produto::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+
+            $formInput = $request->except('image');
+
+            $image=$request->image;
+            $formInput['valor'] = str_replace(['R$','.',','],['','','.'], $formInput['valor']);
+            if($image){
+                $imageName=$image->getClientOriginalName();
+                $image->move('images',$imageName);
+                $formInput['image'] = $imageName;
+
+            }
+            $produto ->update($formInput);
+        }else{
+            $request['image'] = $produto->image;
+            $produto ->update($request->all());
+        }
+        $produtos=Produto::all();
+        return back()->with('success', 'Produto editado com sucesso');;
     }
 
     /**
@@ -99,8 +122,37 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+
+
+    public function deletar($id){
+        $produto = Produto::findOrFail($id);
+        $produto ->delete();
+        \Session::flash('mensagem-sucesso','Produto deletado com sucesso');
+        return back();
+      }
+
+      public function editar($id){
+        $produto = Produto::findOrFail($id);
+        $categorias=Categoria::pluck('nome','id');
+        $unidades=Unidade::pluck('descricao','id');
+        return view('admin.produto.novo',compact('categorias','unidades','produto'));
+
+      }
+
+      public function mudarestado($id){
+        $produto = Produto::findOrFail($id);
+        if($produto->visivel==1){
+
+            $produto->update(['visivel'=>'0']);
+        }else{
+
+            $produto->update(['visivel'=>'1']);
+        }
+
+        return back();
+
+      }
+
+
+
 }

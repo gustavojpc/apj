@@ -678,3 +678,9 @@ body {
         border-radius: 10px;
     }
 }
+
+
+
+.delete{
+    color: red;
+}

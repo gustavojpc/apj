@@ -207,7 +207,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #0b1c39;
   margin-top: 0px;
   font-style: normal;
@@ -2875,18 +2875,9 @@ input:focus::-moz-placeholder {
 }
 
 /* line 876, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
-.footer-padding {
-  padding-top: 150px;
-  padding-bottom: 120px;
-}
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  /* line 876, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
-  .footer-padding {
-    padding-top: 150px;
-    padding-bottom: 120px;
-  }
-}
+
+
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   /* line 876, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
@@ -4062,7 +4053,7 @@ input:focus {
 
 /* line 120, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_h1-hero.scss */
 .slider-area .hero-cap h2 {
-  color: #000;
+  color: #fff;
   font-size: 50px;
   font-weight: 700;
   text-transform: capitalize;
@@ -5129,9 +5120,9 @@ input:focus {
 
 /* line 90, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_footer.scss */
 .footer-copy-right p {
-  color: #888888;
+  color: #ffffff;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 2;
   margin-bottom: 20px;
 }
@@ -5148,7 +5139,7 @@ input:focus {
 
 /* line 109, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_footer.scss */
 .footer-social a i {
-  color: #222222;
+  color: #ffffff;
   margin-right: 12px;
   font-size: 14px;
   -webkit-transition: all 0.4s ease-out 0s;
@@ -11539,14 +11530,14 @@ input:focus {
   border-bottom: 1px solid #dddddd;
   font-size: 18px;
   font-weight: 500;
-  color: #415094;
+  color: #0b1c39;
   padding-bottom: 15px;
 }
 
 /* line 1672, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
 .order_box .list li a {
   font-size: 14px;
-  color: #828bb2;
+  color: #415094;
   font-weight: normal;
   border-bottom: 1px solid #eeeeee;
   display: block;
@@ -13121,3 +13112,10 @@ s
     }
 
 }
+
+.text-bottom2 {
+
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+  }

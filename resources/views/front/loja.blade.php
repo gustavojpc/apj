@@ -26,32 +26,24 @@
                     <div class="product_sidebar" style="box-shadow: 3px 3px 5px 6px #ccc;">
                         <div class="single_sedebar">
                             <form action="#">
-                                <input type="text" name="#" placeholder="Search keyword">
+                                <input type="text" name="#" placeholder="Produrar produto">
                                 <i class="ti-search"></i>
                             </form>
                         </div>
                         <div class="single_sedebar">
                             <div class="select_option">
-                                <div class="select_option_list">Category <i class="right fas fa-caret-down"></i> </div>
+                                <div class="select_option_list">Categoria <i class="right fas fa-caret-down"></i> </div>
                                 <div class="select_option_dropdown">
-                                    <p><a href="#">Category 1</a></p>
-                                    <p><a href="#">Category 2</a></p>
-                                    <p><a href="#">Category 3</a></p>
-                                    <p><a href="#">Category 4</a></p>
+                                    <p><a href="#">Frutas</a></p>
+                                    <p><a href="#">Frutas</a></p>
+                                    <p><a href="#">Frutas</a></p>
+                                    <p><a href="#">Frutas</a></p>
+                                    <p><a href="#">Frutas</a></p>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="single_sedebar">
-                            <div class="select_option">
-                                <div class="select_option_list">Type <i class="right fas fa-caret-down"></i> </div>
-                                <div class="select_option_dropdown">
-                                    <p><a href="#">Type 1</a></p>
-                                    <p><a href="#">Type 2</a></p>
-                                    <p><a href="#">Type 3</a></p>
-                                    <p><a href="#">Type 4</a></p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-9">
