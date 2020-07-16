@@ -45,7 +45,7 @@
                                 <div class="main-menu text-center d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a></li>
+                                            <li><a href="index.html"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt=""></a></li>
 
                                         </ul>
                                     </nav>
@@ -59,7 +59,6 @@
        </div>
         <!-- Header End -->
     </header>
-
 
 
     @yield('content')

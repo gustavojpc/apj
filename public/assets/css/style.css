@@ -11843,20 +11843,176 @@ input:focus {
   color: #000;
 }
 
-/* line 1943, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
-.login_part .login_part_text, .login_part .login_part_form {
-  padding: 80px 70px;
-  height: 600px;
-  display: table;
-}
+/* <--------comeco-editions-login&register------> */
+#secao_registro
+    {
+        border-radius: 20px;
+        background: #f5f5f5;
+        box-shadow: 0px 10px 60px #a9a9a9;
+        background: linear-gradient(90deg, #f5f5f5 50%, rgb(255, 188, 64) 53%);
+        height: 530px;
+    }
 
-@media (max-width: 991px) {
-  /* line 1943, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
-  .login_part .login_part_text, .login_part .login_part_form {
-    padding: 30px;
-    height: 400px;
-  }
-}
+    #aside_create-acount
+    {
+        padding-top: 200px;
+    }
+    
+    #secao_registro h3
+    {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        color: orange;
+        font-weight: bolder
+    }
+
+    #secao_registro h2
+    {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 35px;
+        color: #fff;
+        margin-bottom: 17px;
+    }
+
+    #secao_registro p
+    {
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        margin-bottom: 15px;
+        font-weight: normal;
+    }
+
+    #button_registro
+    {
+        margin-top: 28px;
+        color: white!important;
+        border-color: white;
+        background: transparent;
+    }
+
+    #button_registro:hover
+    {
+        color: orange!important;
+        border-color: white;
+        background: white;
+    }
+
+    #cbutton_register
+    {
+        width: 100%;
+    }
+
+    #formulario_registro #email, #formulario_registro #password, #formulario_registro #name, #formulario_registro #password-confirm
+    {
+        background: #f5f5f5;
+        border: none;
+        border-radius: 15px;
+        border-bottom-color: rgb(185, 185, 185);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+
+    #formulario_registro #email:focus, #formulario_registro #password:focus, #formulario_registro #name:focus, #formulario_registro #password-confirm:focus
+    {
+        background: #dcdcdc9e!important;
+    }
+
+    #formulario_registro
+    {
+        padding-top: 70px;
+    }
+
+    @media (max-width:767px)
+    {
+        #secao_registro
+        {
+            height: 150vh;
+            background: linear-gradient(180deg, #f5f5f5 69%, rgb(255, 188, 64) 71%)
+        }
+
+        #aside_create-acount
+        {
+            padding-top: 0!important;
+            padding-bottom: 0!important;
+        }
+        
+        #cbutton_register
+        {
+            margin-top: 30px;
+        }
+    }
+
+    #secao_login
+    {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-radius: 20px;
+        background: linear-gradient(90deg, #f5f5f5 50%, rgb(255, 188, 64) 53%);
+        box-shadow: 0px 10px 60px #a9a9a9;
+        height: 530px;
+    }
+    
+    #aside_login
+    {
+        padding-top: 100px;
+    }
+
+    #secao_login h3
+    {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        color: orange;
+    }
+
+    #button_registro:hover
+    {
+        color: orange!important;
+    }
+
+    #secao_login #email, #secao_login #password
+    {
+        background: #f5f5f5;
+        border: none;
+        border-bottom-color: rgb(185, 185, 185);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+
+    #login_part_form, #aside_login
+    {
+        padding: 50px 70px;
+    }
+
+    @media (max-width: 991px)
+    {   
+        #secao_login h3
+        {
+            font-size: 25px!important;
+        }
+    }
+
+    @media (max-width:767px)
+    {
+        #secao_login
+        {
+            height: 150vh;
+            background: linear-gradient(180deg, #f5f5f5 58%, rgb(255, 188, 64) 61%);
+        }
+
+        #aside_login
+        {
+            padding-top: 0!important;
+            padding-bottom: 0!important;
+        }
+        
+    }
+
+    /* <--------fim-editions-login&register------> */
+
+
+
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 1943, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
@@ -11872,13 +12028,7 @@ input:focus {
   vertical-align: middle;
 }
 
-/* line 1960, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
-.login_part .login_part_text {
-  background-image: -moz-linear-gradient(90deg, #B08EAD 0%, #4B3049 64%, #B08EAD 100%);
-  background-image: -webkit-linear-gradient(90deg, #B08EAD 0%, #4B3049 64%, #B08EAD 100%);
-  background-image: linear-gradient(90deg, #B08EAD 0%, #4B3049 64%, #B08EAD 100%);
-  background-size: 200% auto;
-}
+
 
 /* line 1965, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
 .login_part .login_part_text h2 {
@@ -11919,7 +12069,7 @@ input:focus {
 
 /* line 1992, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
 .login_part .login_part_form h3 {
-  font-size: 26px;
+  font-size: 30px;
   line-height: 36px;
   font-weight: 700;
   margin-bottom: 80px;
@@ -11962,6 +12112,7 @@ input:focus {
   font-size: 14px;
   margin-bottom: 0;
   margin-left: 10px;
+  margin-top: 8px;
 }
 
 /* line 2024, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
@@ -13033,7 +13184,7 @@ input:focus {
 
   .detalhe_produto_imagem{
     width: 100%;
-s
+
   }
 
   .detalhe_produto_texto{

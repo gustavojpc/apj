@@ -33,7 +33,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/logo.png" alt="">
+                    <img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt="">
                 </div>
             </div>
         </div>
@@ -51,7 +51,8 @@
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
                                 <div class="logo">
-                                  <a href="{{ url('/') }}"><img src="assets/img/logo/logo.png" alt=""></a>
+                                  <a href="index.html"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt=""></a>
+
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-8 col-md-7 col-sm-5">
