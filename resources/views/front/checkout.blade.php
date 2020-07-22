@@ -40,9 +40,13 @@
                 <div class="col-lg-12" style="padding-top: 30px">
                     <h2>Dados de entrega</h2>
                 </div>
+
                 <div class="col-lg-12 text-bottom">
                     {!! Form::label('endereco', 'Rua') !!}
-                    {!! Form::text('endereco',null,['class'=>'form-control text-bottom']) !!}
+                    @error('endereco')
+                        <p class="help-block">{{ $message }}</p>
+                    @enderror
+                    {!! Form::text('endereco',null,  ['class'=> $errors->has('endereco') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
                 </div>
 
                 <div class="col-lg-4 text-bottom">

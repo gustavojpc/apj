@@ -198,6 +198,8 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-style: normal;
+  height: 100%;
+  min-height: 100%;
 }
 
 /* line 13, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
@@ -208,7 +210,7 @@ h4,
 h5,
 h6 {
   font-family: "Source Sans Pro", sans-serif;
-  color: #0b1c39;
+  color: #181818;
   margin-top: 0px;
   font-style: normal;
   font-weight: 500;
@@ -218,7 +220,7 @@ h6 {
 /* line 27, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 p {
   font-family: "Poppins", sans-serif;
-  color: #506172;
+  color: #181818;
   font-size: 16px;
   line-height: 30px;
   margin-bottom: 15px;
@@ -491,7 +493,7 @@ input:focus::-moz-placeholder {
   line-height: 0;
   margin-bottom: 0;
   padding: 27px 44px;
-  border-radius: 25px;
+  border-radius: 5px;
   margin: 10px;
   cursor: pointer;
   transition: color 0.4s linear;
@@ -500,24 +502,15 @@ input:focus::-moz-placeholder {
   border: 0;
   overflow: hidden;
   margin: 0;
+  border: 2px solid #b97104;
 }
 
 /* line 253, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #4e4e4e;
-  z-index: 1;
-  border-radius: 5px;
-  transition: transform 0.5s;
-  transition-timing-function: ease;
-  transform-origin: 0 0;
-  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
-  transform: scaleX(0);
+.btn:hover {
+  background-color: #fff;
+  color: #b97104;
+
+
 }
 
 /* line 271, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
@@ -5091,7 +5084,7 @@ input:focus {
 
 /* line 76, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_footer.scss */
 .footer-copy-right {
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -8375,8 +8368,8 @@ del {
   display: inline-block;
   padding: 17px 50px;
   border-radius: 5px;
-  background-color: #2577fd;
-  border: 2px solid #2577fd;
+  background-color: #181818;
+  border: 2px solid #181818;
   font-size: 15px;
   font-weight: 500;
   -webkit-transition: 0.5s;
@@ -8387,8 +8380,8 @@ del {
 
 /* line 36, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_button.scss */
 .btn_1:hover {
-  background-color: #fff;
-  color: #2577fd;
+  background-color: #181818;
+  color: #fff;
 }
 
 /* line 41, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_button.scss */
@@ -8487,7 +8480,7 @@ del {
   color: #fff;
   border: 1px solid #fdcb9e;
   text-transform: uppercase;
-  background-color: #2577fd;
+  background-color: #181818;
   cursor: pointer;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -10853,14 +10846,21 @@ input:focus {
   margin-bottom: 30px;
   border-bottom: 1px solid #dddddd;
 }
+.tabela-cart {
+    border-top: 1px solid;
+
+    border-bottom: 1px solid ;
+    border-color:  #3535355e;
+  }
 
 /* line 1106, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
 .cart_inner .table thead tr th {
+  padding-top: 50px;
   border-top: 0px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
-  font-family: "Playfair Display", serif;
-  color: #828bb2;
+
+  color: #181818;
   border-bottom: 0px !important;
 }
 
@@ -11173,9 +11173,7 @@ input:focus {
 /* End Cart Area css
 ============================================================================================ */
 /* line 1391, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
-.checkout_area p {
-  font-size: 14px;
-}
+
 
 /* line 1395, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
 .checkout_area .form-control {
@@ -11857,7 +11855,7 @@ input:focus {
     {
         padding-top: 200px;
     }
-    
+
     #secao_registro h3
     {
         font-family: "Poppins", sans-serif;
@@ -11937,7 +11935,7 @@ input:focus {
             padding-top: 0!important;
             padding-bottom: 0!important;
         }
-        
+
         #cbutton_register
         {
             margin-top: 30px;
@@ -11953,7 +11951,7 @@ input:focus {
         box-shadow: 0px 10px 60px #a9a9a9;
         height: 530px;
     }
-    
+
     #aside_login
     {
         padding-top: 100px;
@@ -11986,7 +11984,7 @@ input:focus {
     }
 
     @media (max-width: 991px)
-    {   
+    {
         #secao_login h3
         {
             font-size: 25px!important;
@@ -12006,7 +12004,7 @@ input:focus {
             padding-top: 0!important;
             padding-bottom: 0!important;
         }
-        
+
     }
 
     /* <--------fim-editions-login&register------> */
@@ -12278,7 +12276,7 @@ input:focus {
 
 /* line 2168, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
 .cart_area .btn_1:hover {
-  border: 1px solid #2577fd !important;
+  border: 1px solid #181818 !important;
 }
 
 /************ new arrival css here ****************/
@@ -13210,14 +13208,14 @@ input:focus {
 /* line 36, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_button.scss */
 .btn_1:hover {
   background-color: #fff;
-  color: #2577fd;
+  color: #181818;
 }
 
 .btn_cart {
     display: inline-block;
     border-radius: 5px;
-    background-color: #2577fd;
-    border: 2px solid #2577fd;
+    background-color: #181818;
+    border: 2px solid #181818;
     font-size: 15px;
     font-weight: 500;
     -webkit-transition: 0.5s;
@@ -13270,3 +13268,20 @@ input:focus {
     padding-top: 10px;
 
   }
+  .footer-color {
+    background-color: rgb(15, 15, 15);
+    color: white;
+    text-align: center;
+    font-size: 15px;
+  }
+.head-cart{
+    font-size: 50px;
+    font-weight: 500;
+}
+.input-error{
+    border: 2px solid red;
+}
+.help-block{
+    color: red;
+    font-size: 10px;
+}

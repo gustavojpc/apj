@@ -7,6 +7,7 @@ use App\Pedidos;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class EnderecoController extends Controller
 {
@@ -36,9 +37,14 @@ class EnderecoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function store(Request $request)
     {
 
+        $validator = Validator::make($request->all(), Endereco::$rules, Endereco::$messages)
+        ->validate();
         Auth::user()->endereco()->create($request->all());
         Pedidos::Createorder();
         return redirect('/')->with('success', 'Pedido finalizado com sucesso');

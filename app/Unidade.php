@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Unidade extends Model
 {
     //
-    protected $fillable=['descricao'];
+    protected $fillable=['descricao','sigla'];
     public function produtos()
     {
 

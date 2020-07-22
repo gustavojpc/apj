@@ -51,7 +51,7 @@
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
                                 <div class="logo">
-                                  <a href="index.html"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt=""></a>
+                                  <a href="{{url('/')}}"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt=""></a>
 
                                 </div>
                             </div>
@@ -149,25 +149,29 @@
 
 
 
-    <footer>
 
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding" style="background-color: #202020; color: white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div style="padding-top: 15px">
+    <footer>
+		<!-- Footer Start-->
+		<div class="footer-area footer-padding footer-color">
+			<div class="container">
+				<div class="row d-flex justify-content-between">
+
+				</div>
+				<div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3">
+                        <div style="padding-top: 15px; ">
                             <img src="assets/img/logo/logo.png" alt="">
                         </div>
 
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
+					<div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="footer-copy-right">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-     Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos direitos reservados | APJ
-     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                 </div>
-                    </div>
-                     <div class="col-xl-4 col-lg-4 col-md-4">
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos direitos reservados | APJ
+                        </div>
+
+
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-3">
                         <div class="footer-copy-right f-right">
                             <!-- social -->
                             <div class="footer-social">
@@ -179,11 +183,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Footer End-->
 
-    </footer>
+			</div>
+		</div>
+
+		<!-- Footer End-->
+	</footer>
 
      <!-- JS here -->
 

@@ -18,8 +18,9 @@ class CarrinhoController extends Controller
     {
         //
         $cartItems = Cart::content();
+        $produtos=Produto::all();
 
-        return view('carrinho.index',compact('cartItems'));
+        return view('carrinho.index',compact('cartItems','produtos'));
     }
 
     /**
@@ -61,11 +62,18 @@ class CarrinhoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function messages()
+    {
+        return [
+            'endereco.required' => 'É obrigatorio preencher o endereço'
+        ];
+    }
     public function edit($id)
     {
 
         $produto = Produto::find($id);
-        Cart::add($id,$produto->nome,1,$produto->valor);
+
+        Cart::add($id,$produto->nome,1,$produto->valor,['size' => $produto->unidade->sigla]);
         return redirect()->route('carrinho.index');
     }
 
