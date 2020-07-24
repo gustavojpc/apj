@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Unidade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UnidadesController extends Controller
 {
@@ -40,10 +41,11 @@ class UnidadesController extends Controller
     public function store(Request $request)
     {
         //
+        $validator = Validator::make($request->all(), Unidade::$rules, Unidade::$messages)
+        ->validate();
         $formInput = $request -> all();
         Unidade::create($formInput);
-
-        return view('admin.unidades.novo')->with('success', 'Produto criado com sucesso');
+        return view('admin.unidades.novo')->with('success', 'Unidade adicionada com sucesso');
     }
 
     /**

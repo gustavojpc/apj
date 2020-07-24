@@ -27,13 +27,16 @@
                 <tr>
                         <td>{{ $categoria->nome }}</td>
 
-                        <td style="font-color: black"><i class="fa fa-trash" style="padding-right: 5px; color: red" aria-hidden="true"></i>   <i class="fas fa-edit    "></i></td>
+                        <td style="font-color: black">{!! Form::open(['method' => 'DELETE', 'url' => '/admin/categoria/'.$categoria->id,'style' => 'display:inline' ])!!}
+
+                        <button type="submit" class="btn btn-default"><i class="fas fa-trash delete" title="Exluir Categoria"></i></button>
+                        {!!Form::close()!!}  <i class="fas fa-edit    "></i></td>
                     </tr>
             @empty
-                <h4>Sem produtos cadastrados</h4>
+                <h4>Sem Categorias cadastradas</h4>
             @endforelse
-</tbody>
-</table>
+        </tbody>
+    </table>
 
 
 @endsection

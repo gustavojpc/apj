@@ -6,7 +6,8 @@
     <link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/fontawesome-all.min.css')}}">
-
+    <link rel="stylesheet" href="{{asset('assets/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 <body>
 @include('admin.layout.includes.header')

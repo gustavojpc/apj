@@ -19,14 +19,21 @@
         <div class="col-lg-10">
 
                 {!! Form::label('descricao', 'Nome da unidade',) !!}
-                {!! Form::text('descricao', null, array('class'=>'form-control')) !!}
+
+                {!! Form::text('descricao',null,['class'=> $errors->has('descricao') ? 'form-control text-bottom input-error':'form-control text-bottom' ]) !!}
+                @error('descricao')
+                    <p class="help-block">{{ $message }}</p>
+                @enderror
 
         </div>
         <div class="col-lg-2">
 
             {!! Form::label('sigla', 'Sigla da unidade',) !!}
-            {!! Form::text('sigla', null, array('class'=>'form-control')) !!}
 
+            {!! Form::text('sigla',null,['class'=> $errors->has('sigla') ? 'form-control text-bottom input-error':'form-control text-bottom' ]) !!}
+            @error('sigla')
+                <p class="help-block">{{ $message }}</p>
+            @enderror
     </div>
 
         <div class="col-lg-12"  style="padding-top:15px"'>

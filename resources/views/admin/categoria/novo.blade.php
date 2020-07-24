@@ -9,7 +9,10 @@
 
         <div class="form-group">
             {!! Form::label('nome', 'Nome') !!}
-            {!! Form::text('nome', null, array('class'=>'form-control')) !!}
+            @error('nome')
+                <p class="help-block">{{ $message }}</p>
+            @enderror
+            {!! Form::text('nome',null,['class'=> $errors->has('nome') ? 'form-control text-bottom input-error':'form-control text-bottom' ]) !!}
         </div>
 
         </div>

@@ -19,4 +19,7 @@ class FrontController extends Controller
     public function detalhe_produto(){
         return view('front.detalhe_produto');
     }
+    public function sobre(){
+        return view('front.sobre');
+    }
 }
