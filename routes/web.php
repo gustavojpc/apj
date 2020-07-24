@@ -25,6 +25,8 @@ Route::get('/detalhe_produto', 'FrontController@detalhe_produto')->name('detalhe
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/sobre', 'FrontController@sobre')->name('sobre');
+
 Route::resource('/carrinho', 'CarrinhoController');
 
 Route::get('/logout', 'auth\LoginController@logout');
