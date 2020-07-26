@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="{{asset('assets/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
 
 </head>
 <body>

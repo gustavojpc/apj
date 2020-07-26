@@ -46,4 +46,7 @@ class FrontController extends Controller
         ->orderBy('created_at','DESC')->first();
         return view('front.minhaconta',compact('user','ultimoendereco'));
     }
+    public function sobre(){
+        return view('front.sobre');
+    }
 }

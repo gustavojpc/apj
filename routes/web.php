@@ -26,8 +26,10 @@ Route::get('produtos/detalhe/{id}', 'FrontController@detalhe')->name('detalhe_pr
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/sobre', 'FrontController@sobre')->name('sobre');
 
 
+Route::resource('/carrinho', 'CarrinhoController');
 Route::get('/logout', 'auth\LoginController@logout');
 
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {

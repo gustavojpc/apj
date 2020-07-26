@@ -55,26 +55,41 @@
                 </div>
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('bairro', 'Bairro') !!}
-                    {!! Form::text('bairro',null,['class'=>'form-control']) !!}
+                    @error('bairro')
+                        <p class="help-block">{{ $message }}</p>
+                    @enderror
+                    {!! Form::text('bairro',null,['class'=> $errors->has('bairro') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
                 </div>
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('cidade', 'Cidade') !!}
-                    {!! Form::text('cidade',null,['class'=>'form-control']) !!}
+                    @error('cidade')
+                        <p class="help-block">{{ $message }}</p>
+                    @enderror
+                    {!! Form::text('cidade',null,['class'=> $errors->has('cidade') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
                 </div>
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('estado', 'Estado') !!}
-                    {!! Form::text('estado',null,['class'=>'form-control']) !!}
+                    @error('estado')
+                        <p class="help-block">{{ $message }}</p>
+                    @enderror
+                    {!! Form::text('estado',null,['class'=> $errors->has('estado') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
                 </div>
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('numero', 'Numero') !!}
-                    {!! Form::text('numero',null,['class'=>'form-control']) !!}
+                    @error('numero')
+                        <p class="help-block">{{ $message }}</p>
+                    @enderror
+                    {!! Form::text('numero',null,['class'=> $errors->has('numero') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
                 </div>
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('CEP', 'CEP') !!}
-                    {!! Form::text('CEP',null,['class'=>'form-control']) !!}
+                    @error('CEP')
+                        <p class="help-block">{{ $message }}</p>
+                    @enderror
+                    {!! Form::text('CEP',null,['class'=> $errors->has('CEP') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
                 </div>
 
 
@@ -86,7 +101,10 @@
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('telefone', 'Telefone') !!}
-                    {!! Form::text('Telefone',null,['class'=>'form-control']) !!}
+                    @error('Telefone')
+                        <p class="help-block">{{ $message }}</p>
+                    @enderror
+                    {!! Form::text('Telefone',null,['class'=> $errors->has('Telefone') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
 
 
                 </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriasController extends Controller
 {
@@ -39,11 +41,26 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         //
-        $formInput = $request->all();
 
+        $validator = Validator::make($request->all(), Categoria::$rules, Categoria::$messages)
+        ->validate();
+        $formInput = $request -> all();
         Categoria::create($formInput);
-        return redirect()->route('admin.index');
+        return view('admin.unidades.novo')->with('success', 'Categoria adicionada com sucesso');
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deletar($id){
+        $categoria = Categoria::findOrFail($id);
+        $categoria ->delete();
+        \Session::flash('mensagem-sucesso','Categoria deletado com sucesso');
+        return back();
+      }
 
     /**
      * Display the specified resource.

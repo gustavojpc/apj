@@ -63,8 +63,9 @@
                                             <li><a href="{{url('/')}}">Página inicial</a></li>
                                             <li><a href="{{url('/produtos')}}">Loja</a></li>
                                             <li><a href="Galeria.html">Galeria</a></li>
-                                            <li><a href="Galeria.html">Comunicados</a></li>
+
                                             <li><a href="Galeria.html">Contato</a></li>
+                                            <li><a href="{{url('/sobre')}}">Sobre</a></li>
                                             @auth
                                                 <li class="show-login"><a href="Galeria.html">{{Auth::user()->name}}</a></li>
                                                 <ul class="submenu">

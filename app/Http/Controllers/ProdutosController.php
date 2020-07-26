@@ -6,6 +6,7 @@ use App\Produto;
 use App\Providers;
 use App\Unidade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProdutosController extends Controller
 {
@@ -43,7 +44,8 @@ class ProdutosController extends Controller
     public function store(Request $request)
     {
 
-
+        $validator = Validator::make($request->all(), Produto::$rules, Produto::$messages)
+        ->validate();
 
         $formInput = $request->except('image');
 
