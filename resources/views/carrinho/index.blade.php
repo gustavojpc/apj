@@ -1,9 +1,9 @@
 @extends('front.layout.main')
-
+@section('title','APJ | Carrinho de compras')
 @section('content')
 <div class="slider-area ">
     <!-- Mobile Menu -->
-    <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
+    <div class="single-slider slider-height2 d-flex align-items-center" style="background-image: url('assets/img/hero/category.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -50,13 +50,20 @@
                                 <div class="product_count">
                                 {!! Form::open(['route' => ['carrinho.update',$cartItem->rowId] , 'method' => 'PUT']) !!}
 
-                                    <input style="border: 1px solid" name="qty" type="text" value="{{$cartItem->qty}}" min="0" max="10">
+                                    @if ( $cartItem->options->size == "Un")
+
+
+                                        {!! Form::select('qty',$qtde, $cartItem->qty,['class'=>'select-cart']) !!}
+
+                                    @else
+                                        <input name="qty" type="text" value="{{$cartItem->qty}}" min="0" max="10">
+                                    @endif
 
 
                                     {{$cartItem->options->size}}.
-                                <button type="submit" class="btn_cart small">
-                                    <i class="fas fa-sync" style=""></i>
-                                </button>
+                                    <button type="submit" class="btn_cart small">
+                                        <i class="fas fa-sync" style=""></i>
+                                    </button>
                                 {!! Form::close() !!}
                                 </div>
                             </td>
@@ -94,7 +101,7 @@
                         Frete
                         </th>
                         <th>
-                            {{Cart::tax()}}
+                            R$ {{Cart::tax()}}
                         </th>
                     </tr>
                     <tr>
@@ -112,6 +119,7 @@
 
 
                             <div class="checkout_btn_inner float-right">
+
                                 <a class="btn_1" href="{{ url('/produtos') }}">Continuar comprando</a>
                                 <a class="btn_1 checkout_btn_1" href="{{ route('checkout.entrega') }}">Finalizar compra</a>
                             </div>

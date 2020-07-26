@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>APJ | Registro</title>
 @section('content')
 
 <!--================login_part Area =================-->
@@ -77,7 +77,7 @@
             <div class="login_part_text text-center" style="padding-bottom: 0">
                 <div class="login_
                 part_text_iner" >
-                    
+
                     <h2>Já tem uma conta?!</h2>
                     <p>Então entre na sua conta por aqui!</p>
                     <a href="#" class="btn_3" id="button_registro">Entrar</a>

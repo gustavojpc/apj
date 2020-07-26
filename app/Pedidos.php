@@ -36,6 +36,7 @@ class Pedidos extends Model
                 'total'=>$cartItem->qty*$cartItem->price
             ]);
         }
+        return $pedido->id;
     }
 }
 

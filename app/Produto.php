@@ -23,5 +23,18 @@ class Produto extends Model
 
         return $this->belongsTo(Unidade::class);
     }
+    public function scopeofFilters($query){
+        if(request('search')){
+            $query->where('nome','like','%'.request('search').'%');
+        }
+        if(request('categorias_id')){
+
+
+            $query->whereIn('categoria_id',request('categorias_id'));
+        }
+        return $query;
+    }
+
+
 
 }

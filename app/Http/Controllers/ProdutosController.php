@@ -153,6 +153,9 @@ class ProdutosController extends Controller
 
       }
 
-
+      public function Filtrar(Request $request)
+      {
+          dd($request);
+      }
 
 }

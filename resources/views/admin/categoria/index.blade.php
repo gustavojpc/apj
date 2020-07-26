@@ -1,4 +1,5 @@
 @extends('admin.layout.admin')
+@section('title','ADMIN | Categoria')
 
 @yield('APJ | Páginal')
 @section('content')

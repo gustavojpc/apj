@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Endereco;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class CheckoutController extends Controller
 {
@@ -29,6 +31,12 @@ class CheckoutController extends Controller
 
         return view('front.checkout',compact('ultimoendereco','cartItems'));
 
+
+    }
+    public function GerarPDF()
+    {
+        $pdf = PDF::loadview('front.pdfpedido');
+        return $pdf ->setPaper('a4')->stream('PedidoAPJ.pdf');
 
     }
 

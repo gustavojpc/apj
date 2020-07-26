@@ -40,6 +40,17 @@
                     <li><a href="{{route('unidade.create')}}">Adicionar Unidades</a></li>
                 </ul>
             </li>
+            <li class="submenu">
+                <a href="#">
+                    <i class="glyphicon glyphicon-list"></i> Relatórios
+                    <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                    <li><a href="{{url('admin/relatorio/vendas')}}">Relatório de vendas</a></li>
+
+                </ul>
+            </li>
         </ul>
     </div>
 </div> <!-- ADMIN SIDE NAV-->

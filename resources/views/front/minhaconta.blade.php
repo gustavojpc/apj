@@ -1,44 +1,62 @@
 @extends('front.layout.main')
-@section('title','APJ | Checkout')
+@section('title','APJ | Minha conta')
 @section('content')
-    <!-- slider Area Start-->
-  <div class="slider-area ">
-    <!-- Mobile Menu -->
-    <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="hero-cap text-center">
-                        <h2>Checkout</h2>
-                    </div>
+
+<div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="hero-cap text-center">
+                    <h2 class="titulo-pagina">Minha conta</h2>
                 </div>
             </div>
         </div>
     </div>
-  </div>
-  <!-- slider Area End-->
-
-  <!--================Checkout Area =================-->
-  <section class="checkout_area section_padding">
+</div>
+<div class="product_image_area">
     <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 border-minhaconta">
+
+            <h5 style="padding-top: 10px">Meus dados</h5>
+
+            {!! Form::model($user,['user' => 'PATCH', 'url' => 'minhaconta/editar/'.$user->id]) !!}
 
 
-      <div class="billing_details">
-        <div class="row">
-          <div class="col-lg-8">
+                <div class="col-lg-12">
+                    {!! Form::label('name', 'Nome') !!}
+                    {!! Form::text('name', null, array('class'=>'form-control','')) !!}
+                    @if ($errors->has('name'))
+                        <span class="text-danger">{{ $errors->first('nome') }}</span>
+                    @endif
+                </div>
+                <div class="col-lg-12" style="padding-bottom: 10px">
+                    {!! Form::label('email', 'Email') !!}
+                    {!! Form::text('email', null, array('class'=>'form-control','disabled')) !!}
+                    @if ($errors->has('email'))
+                        <span class="text-danger">{{ $errors->first('nome') }}</span>
+                    @endif
+                </div>
+                <div class="col-lg-4" style="display: inline">
+                    <button class="genric-btn primary">Alterar senha</button>
+                    {!! Form::submit('Salvar',['class'=>'genric-btn primary']) !!}
+                </div>
+            {!! Form::close() !!}
 
 
+        </div>
+        <div class="col-lg-1">
+            </div>
+        <div class="col-lg-5 border-minhaconta">
 
-
-
-            @if (is_null($ultimoendereco))
+                @if (is_null($ultimoendereco))
                 {!! Form::open(['route'=>'endereco.store','method'=>'post']) !!}
             @endif
                 {!! Form::model($ultimoendereco,['route'=>'endereco.store','method'=>'post']) !!}
 
             <div class="row">
-                <div class="col-lg-12" style="padding-top: 30px">
-                    <h2>Dados de entrega</h2>
+                <div class="col-lg-12" >
+                    <h5 style="padding-top: 10px">Dados de entrega</h5>
                 </div>
 
                 <div class="col-lg-12 text-bottom">
@@ -91,58 +109,16 @@
 
                 </div>
                 <div class="col-lg-12">
-                    {!! Form::submit('Finalizar pedido',['class'=>'genric-btn primary']) !!}
+                    {!! Form::submit('Salvar',['class'=>'genric-btn primary']) !!}
+                    {!! Form::close() !!}
                 </div>
             </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="order_box">
-              <h2>Resumo do pedido</h2>
-              <ul class="list">
-                <li>
-                  <a >Produto
-                    <span>Total</span>
-                  </a>
-                </li>
-
-                @foreach ($cartItems as $cartItem)
-                    <li>
-                        <a>
-                        {{$cartItem->name}}
-                        <span class="middle">x {{$cartItem->qty}}</span>
-                        <span class="last">R$ {{$cartItem->price}}</span>
-                    </a>
-                    </li>
-                @endforeach
 
 
-
-
-
-                <li>
-                  <a href="#">Total
-                    <span>R$ {{Cart::total()}}</span>
-                  </a>
-                </li>
-              </ul>
-              <div class="payment_item">
-
-                <p>
-                  O pagamento da compra é feito durante a entrega do pedido,
-                  você receberá um e-mail confirmando os dados da compra.
-                </p>
-              </div>
-
-
-            </div>
-          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+
 @endsection
-
-
-  <!--================End Checkout Area =================-->
-
-

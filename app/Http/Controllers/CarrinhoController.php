@@ -20,7 +20,10 @@ class CarrinhoController extends Controller
         $cartItems = Cart::content();
         $produtos=Produto::all();
 
-        return view('carrinho.index',compact('cartItems','produtos'));
+        for ($i=1; $i <= 10; $i++) {
+            $qtde[$i] = $i;
+        }
+        return view('carrinho.index',compact('cartItems','produtos','qtde'));
     }
 
     /**
@@ -43,6 +46,11 @@ class CarrinhoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $produto = Produto::find($request->id);
+
+        Cart::add($request->id,$produto->nome,$request->qty,$produto->valor,['size' => $produto->unidade->sigla]);
+        return redirect()->route('carrinho.index');
     }
 
     /**
@@ -76,6 +84,9 @@ class CarrinhoController extends Controller
         Cart::add($id,$produto->nome,1,$produto->valor,['size' => $produto->unidade->sigla]);
         return redirect()->route('carrinho.index');
     }
+
+
+
 
     /**
      * Update the specified resource in storage.

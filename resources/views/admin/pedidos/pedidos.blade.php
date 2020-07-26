@@ -1,5 +1,5 @@
 @extends('admin.layout.admin')
-
+@section('title','ADMIN | Pedidos')
 @section('content')
 
     @if(Session::has('success'))

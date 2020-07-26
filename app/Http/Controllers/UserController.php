@@ -1,15 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use PDF;
-use App\Endereco;
-use App\Pedidos;
-use Gloudemans\Shoppingcart\Facades\Cart;
+
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
-class EnderecoController extends Controller
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,28 +33,9 @@ class EnderecoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function store(Request $request)
     {
-
-        $validator = Validator::make($request->all(), Endereco::$rules, Endereco::$messages)
-        ->validate();
-        Auth::user()->endereco()->create($request->all());
-        $id = Pedidos::Createorder();
-        $pedido=Pedidos::where('id',$id)->get();
-        $idpedido=Pedidos::where('id',$id)->first();
-        $ultimoendereco=Endereco::where('user_id',auth()->user()->id)
-        ->orderBy('created_at','DESC')->first();
-        $itenspedido=DB::table('pedidos_produto')
-        ->join('produtos', 'produto_id', '=', 'produtos.id')
-        ->where('pedidos_id', $idpedido->id)->get();
-        $pdf = PDF::loadview('front.pdfpedido',compact('pedido','ultimoendereco','itenspedido'));
-        return $pdf ->setPaper('a4')->stream('PedidoAPJ.pdf');
-        //return redirect('/')->with('success', 'Pedido finalizado com sucesso');
-
-
+        //
     }
 
     /**
@@ -80,7 +57,7 @@ class EnderecoController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -93,6 +70,10 @@ class EnderecoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::findOrFail($id);
+        $user ->update($request->all());
+
+        return back()->with('success', 'Cliente editado com sucesso');;
     }
 
     /**
