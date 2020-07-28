@@ -37,12 +37,13 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
     Route::resource('produto', 'ProdutosController');
     Route::delete('/produto/{produto}', 'ProdutosController@deletar');
-    Route::get('/produto/{produto}/editar', 'ProdutosControllr@editar');
+    Route::get('/produto/{produto}/editar', 'ProdutosController@editar');
     Route::get('/produto/{produto}/estado', 'ProdutosController@mudarestado');
     Route::patch('/produto/{produto}', 'ProdutosController@update');
     Route::resource('categoria', 'CategoriasController');
     Route::resource('unidade', 'UnidadesController');
     Route::get('relatorio/vendas', 'RelatoriosController@Vendas');
+    Route::get('relatorio/clientes', 'RelatoriosController@Clientes');
     Route::get('pedidos/{type?}', 'PedidosController@Pedidos');
     Route::get('pedidos/{pedido}/entregar', 'PedidosController@Entregar');
 

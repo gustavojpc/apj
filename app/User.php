@@ -46,4 +46,16 @@ class User extends Authenticatable
     public function pedidos(){
         return $this->hasMany(Pedidos::class);
     }
+    public function scopeofFilters($query){
+        if(request('codigo')){
+            $query->where('id',request('codigo'));
+        }
+        if(request('nome')){
+            $query->where('name','like','%'.request('name').'%');
+        }
+        if(request('email')){
+            $query->where('email','like','%'.request('email').'%');
+        }
+        return $query;
+    }
 }

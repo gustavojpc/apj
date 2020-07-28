@@ -45,14 +45,16 @@ class EnderecoController extends Controller
 
         $validator = Validator::make($request->all(), Endereco::$rules, Endereco::$messages)
         ->validate();
-        Auth::user()->endereco()->create($request->all());
-        $id = Pedidos::Createorder();
+        $endereco = Auth::user()->endereco()->create($request->all());
+
+        $id = Pedidos::Createorder($endereco->id);
         $pedido=Pedidos::where('id',$id)->get();
         $idpedido=Pedidos::where('id',$id)->first();
         $ultimoendereco=Endereco::where('user_id',auth()->user()->id)
         ->orderBy('created_at','DESC')->first();
         $itenspedido=DB::table('pedidos_produto')
         ->join('produtos', 'produto_id', '=', 'produtos.id')
+        ->join('unidades', 'produtos.unidade_id', '=', 'unidades.id')
         ->where('pedidos_id', $idpedido->id)->get();
         $pdf = PDF::loadview('front.pdfpedido',compact('pedido','ultimoendereco','itenspedido'));
         return $pdf ->setPaper('a4')->stream('PedidoAPJ.pdf');

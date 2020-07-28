@@ -1,107 +1,157 @@
-@extends('admin.layout.admin')
+@extends('admin.layout.includes.main')
+@section('title','Painel Admin | Relatório de venda')
+
+@yield('APJ | Páginal')
 @section('content')
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-
-<script type="text/javascript">
-
-google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawBasic);
-
-function drawBasic() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('timeofday', 'Time of Day');
-      data.addColumn('number', 'Motivation Level');
-
-      data.addRows([
-        [{v: [8, 0, 0], f: '8 am'}, 1],
-        [{v: [9, 0, 0], f: '9 am'}, 2],
-        [{v: [10, 0, 0], f:'10 am'}, 3],
-        [{v: [11, 0, 0], f: '11 am'}, 4],
-        [{v: [12, 0, 0], f: '12 pm'}, 5],
-        [{v: [13, 0, 0], f: '1 pm'}, 6],
-        [{v: [14, 0, 0], f: '2 pm'}, 7],
-        [{v: [15, 0, 0], f: '3 pm'}, 8],
-        [{v: [16, 0, 0], f: '4 pm'}, 9],
-        [{v: [17, 0, 0], f: '5 pm'}, 10],
-      ]);
-
-      var options = {
-        title: 'Motivation Level Throughout the Day',
-        hAxis: {
-          title: 'Time of Day',
-          format: 'h:mm a',
-          viewWindow: {
-            min: [7, 30, 0],
-            max: [17, 30, 0]
-          }
-        },
-        vAxis: {
-          title: 'Rating (scale of 1-10)'
-        }
-      };
-
-      var chart = new google.visualization.ColumnChart(
-        document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
-
-
-
-
-</script>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-
-
-    <div class="row relatorio-group">
-        <div class="col-lg-12 text-center">
-            <h2>Relatório de vendas</h2>
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+            @php
+                Session::forget('success');
+            @endphp
         </div>
-    </div>
-    <div class="row relatorio-group">
-        <div class="col-lg-4 ">
-            <div class="input-group">
-                Data inicial:
-                {!! Form::open() !!}
-                {!! Form::text('date', '', ['class'=>'form-control','id' => 'datepickerfim' ]) !!}
-                {!! Form::close() !!}
+    @endif
 
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+            <section class="content-header">
+            <div class="container-fluid">
+                <form action="{{ url('admin/relatorio/vendas')}}">
+                    @csrf
+                <div class="row mb-2">
+
+                        <div class="col-sm-12">
+                            <h1>Relatório vendas</h1>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                            <label for="">Periodo Inicial</label>
+                            <input type="date" name="datainicio" value="{{$datainicio}}" id="" class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                            <label for="">Periodo Final</label>
+                            <input type="date" name="datafim" value="{{$datafim}}"  id="" class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                            <label for="">Cliente</label>
+                            <input type="number" name="cliente" value="{{$cliente}}" id="" class="form-control" placeholder="" aria-describedby="helpId">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </div>
+                        </div>
+
+
+
+                </div>
+            </form>
+            </div><!-- /.container-fluid -->
+            </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+          <!-- Default box -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Vendas</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                  <i class="fas fa-times"></i></button>
+              </div>
             </div>
+            <div class="card-body p-0">
+              <table class="table table-striped projects">
+                  <thead>
+                      <tr>
+                          <th style="width: 1%">
+                              #
+                          </th>
+                          <th style="width: 25%">
+                            Data do pedido
+                          </th>
+                          <th style="width: 40%">
+                           Cliente
+                          </th>
+                          <th style="width: 15%">
+                            Valor total
+                          </th>
+                          <th style="width: 20%">
+                            Status
+                          </th>
 
-        </div>
-        <div class="col-lg-4">
-            <div class="input-group">
-                Data inicial:
-                {!! Form::open() !!}
-                {!! Form::text('date', '', ['class'=>'form-control','id' => 'datepickerfim' ]) !!}
-                {!! Form::close() !!}
+                      </tr>
+                  </thead>
+                  <tbody>
+                    @forelse ($pedidos as $pedido)
 
+
+                    <tr>
+                        <td>
+                            #
+                        </td>
+                        <td>
+                            <a>
+                                {{$pedido->created_at->format('d/m/Y H:i:s')}}
+                            </a>
+                        </td>
+                        <td>
+                            <a>
+                                {{$pedido->user->name}}
+                            </a>
+                        </td>
+                        <td>
+                            <a>
+                                {{$pedido->total}}
+                            </a>
+                        </td>
+                        <td class="project-state">
+
+                            @if ($pedido->entregue==1)
+                            <span class="badge badge-success">Entregue</span>
+                            @else
+                            <span class="badge badge-danger">Não entregue</span>
+                            @endif
+                        </td>
+
+
+
+
+
+                    </tr>
+
+                @empty
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Sem pedidos</strong>
+                    </div>
+                @endforelse
+
+
+                  </tbody>
+              </table>
             </div>
-            <button type="button" class="btn btn-primary">Buscar</button>
-        </div>
-        <div class="col-lg-4">
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
 
-        </div>
-    </div>
-    <div class="row relatorio-group">
+        </section>
+        <!-- /.content -->
+      </div>
 
-        <div class="col-lg-4">
-            Total de vendas do dia
-        </div>
-        <div class="col-lg-4">
-            Total de vendas do dia
-        </div>
-    </div>
-
-    <div class="row relatorio-group">
-        <div class="col-lg-12">
-            <div id="chart_div"></div>
-        </div>
-    </div>
 
 
 

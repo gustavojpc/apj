@@ -20,7 +20,7 @@ class Produto extends Model
         'categoria_id' => 'required',
         'unidade_id'=> 'required',
         'descricao' => 'required',
-        'image' => 'required| dimensions:max_width=512,max_height=512, min_width=100,min_height=100|image'
+        'image' => 'required| dimensions:max_width=2048,max_height=2048, min_width=100,min_height=100|image'
     );
 
     public static $messages=array(
@@ -46,6 +46,13 @@ class Produto extends Model
 
         return $this->belongsTo(Unidade::class);
     }
+    public function pedido()
+    {
+
+        return $this->hasMany(Pedidos::class);
+    }
+
+
     public function scopeofFilters($query){
         if(request('search')){
             $query->where('nome','like','%'.request('search').'%');

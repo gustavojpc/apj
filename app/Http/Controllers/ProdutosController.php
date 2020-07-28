@@ -32,7 +32,7 @@ class ProdutosController extends Controller
         //
         $categorias=Categoria::pluck('nome','id');
         $unidades=Unidade::pluck('descricao','id');
-        return view('admin.produto.novo',compact('categorias','unidades'));
+        return view('admin.produto.novo',compact('categorias','unidades'))->with('success', 'Produto criado com sucesso');
     }
 
     /**
@@ -60,7 +60,7 @@ class ProdutosController extends Controller
         //
 
         Produto::create($formInput);
-        return back()->with('success', 'Produto criado com sucesso');
+        return back()->with('success', 'Produto salvo com sucesso');
     }
 
     /**
@@ -129,8 +129,8 @@ class ProdutosController extends Controller
     public function deletar($id){
         $produto = Produto::findOrFail($id);
         $produto ->delete();
-        \Session::flash('mensagem-sucesso','Produto deletado com sucesso');
-        return back();
+
+        return back()->with('success', 'Produto deletado com sucesso');
       }
 
       public function editar($id){

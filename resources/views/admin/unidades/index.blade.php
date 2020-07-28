@@ -1,4 +1,4 @@
-@extends('admin.layout.admin')
+@extends('admin.layout.includes.main')
 @section('title','ADMIN | Unidades')
 
 
@@ -14,30 +14,111 @@
         </div>
     @endif
 
-    <h3>Produtos</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <td><b>Nome da categoria</b> </td>
-                <td><b>Sigla da categoria</b> </td>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+            <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Unidades</h1>
+                </div>
+                <div class="col-sm-6">
 
-                <td><b>Ações</b></td>
+                </div>
+                </div>
+            </div><!-- /.container-fluid -->
+            </section>
 
-            </tr>
-        </thead>
-        <tbody>0
-            @forelse ($unidades as $unidade)
-                <tr>
-                        <td>{{ $unidade->descricao }}</td>
-                        <td>{{ $unidade->sigla }}</td>
+        <!-- Main content -->
+        <section class="content">
 
-                        <td style="font-color: black"><i class="fa fa-trash" style="padding-right: 5px; color: red" aria-hidden="true"></i>   <i class="fas fa-edit    "></i></td>
+          <!-- Default box -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Unidades</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                  <i class="fas fa-times"></i></button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <table class="table table-striped projects">
+                  <thead>
+                      <tr>
+                          <th style="width: 1%">
+                              #
+                          </th>
+                          <th style="width: 0%">
+                            Nome da unidade
+                          </th>
+                          <th style="width: 10%">
+                            Sigla da unidade
+                          </th>
+
+                          <th class="text-center" style="width: 30%">
+                            Ações
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    @forelse ($unidades as $unidade)
+
+
+                    <tr>
+                        <td>
+                            #
+                        </td>
+                        <td>
+                            <a>
+                                 {{ $unidade->descricao }}
+                            </a>
+
+
+                        </td>
+                        <td>
+                            {{ $unidade->sigla }}
+                        </td>
+
+                        <td class="project-actions text-right">
+
+                            <a class="btn btn-info btn-sm" href="unidade/{{$unidade->id}}/editar">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Editar
+                            </a>
+                            {!! Form::open(['method' => 'DELETE', 'url' => '/admin/unidade/'.$unidade->id,'style' => 'display:inline' ])!!}
+
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </button>
+
+
+                            {!!Form::close()!!}
+                        </td>
                     </tr>
-            @empty
-                <h4>Sem produtos cadastrados</h4>
-            @endforelse
-</tbody>
-</table>
+
+                @empty
+                    <h4>Sem produtos cadastrados</h4>
+                @endforelse
+
+
+                  </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+      </div>
+
+
 
 
 @endsection

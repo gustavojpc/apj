@@ -54,7 +54,7 @@
                 <th width="20%">Data da compra:</th>
                 <td  style="padding-left: 10px" align="left" width="30%">{{ $item->created_at->format('d/m/Y H:i:s')}}</td>
             </tr>
-            @endforeach
+
             <tr>
                 <th colspan="6" width="10%">Dados de entrega</th>
 
@@ -62,25 +62,25 @@
 
             <tr>
                 <th width="10%">Rua:</th>
-                <td colspan="3" style="padding-left: 10px" align="left" width="33%">{{ $ultimoendereco->endereco}}</td>
+                <td colspan="3" style="padding-left: 10px" align="left" width="33%">{{ $item->endereco->endereco}}</td>
                 <th width="10%">Bairro:</th>
-                <td style="padding-left: 10px" align="left" width="33%">{{ $ultimoendereco->bairro}}</td>
+                <td style="padding-left: 10px" align="left" width="33%">{{ $item->endereco->bairro}}</td>
             </tr>
             <tr>
                 <th width="10%">Numero:</th>
-                <td style="padding-left: 10px" align="left" width="33%">{{ $ultimoendereco->numero}}</td>
+                <td style="padding-left: 10px" align="left" width="33%">{{ $item->endereco->numero}}</td>
                 <th width="10%">Complemento:</th>
-                <td style="padding-left: 10px" align="left" width="33%">{{ $ultimoendereco->complemento}}</td>
+                <td style="padding-left: 10px" align="left" width="33%">{{ $item->endereco->complemento}}</td>
                 <th width="10%">CEP:</th>
-                <td style="padding-left: 10px" align="left" width="33%">{{ $ultimoendereco->CEP}}</td>
+                <td style="padding-left: 10px" align="left" width="33%">{{ $item->endereco->CEP}}</td>
             </tr>
             <tr>
                 <th colspan="2" width="10%">Ponto de referência:</th>
-                <td colspan="2" style="padding-left: 10px" align="left" width="33%">{{ $ultimoendereco->referencia}}</td>
+                <td colspan="2" style="padding-left: 10px" align="left" width="33%">{{ $item->endereco->referencia}}</td>
                 <th width="10%">Telefone:</th>
-                <td style="padding-left: 10px" align="left" width="33%">{{ $ultimoendereco->Telefone}}</td>
+                <td style="padding-left: 10px" align="left" width="33%">{{ $item->endereco->Telefone}}</td>
             </tr>
-
+            @endforeach
 
     </table>
 
@@ -99,7 +99,7 @@
             @foreach ($itenspedido as $item)
                 <tr align="center">
                     <td colspan="4" width="50%">{{$item->nome}}</td>
-                    <td  width="25%">{{$item->qtde}} {{$item->sigla}}.</td>
+                    <td  width="25%">{{$item->qtde}} {{$item->sigla}} </td>
                     <td  width="25%">R$ {{$item->total}}</td>
 
                 </tr>

@@ -28,5 +28,8 @@ class Endereco extends Model
         'Telefone.numeric' => 'Campo de Telefone é numerico',
         'Telefone.required' => 'Campo de Telefone é obrigatório'
        );
+       public function pedidos(){
+        return $this->hasMany(Pedidos::class);
+    }
 }
 
