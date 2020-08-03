@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -170,7 +171,12 @@ to get the desired effect
                       <p>Clientes</p>
                     </a>
                   </li>
-
+                  <li class="nav-item">
+                    <a href="{{url('admin/relatorio/meses')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Resultados Mensais</p>
+                    </a>
+                  </li>
 
                 </ul>
             </li>

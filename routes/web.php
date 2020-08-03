@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::resource('unidade', 'UnidadesController');
     Route::get('relatorio/vendas', 'RelatoriosController@Vendas');
     Route::get('relatorio/clientes', 'RelatoriosController@Clientes');
+    Route::get('relatorio/meses', 'RelatoriosController@Meses');
     Route::get('pedidos/{type?}', 'PedidosController@Pedidos');
     Route::get('pedidos/{pedido}/entregar', 'PedidosController@Entregar');
 
