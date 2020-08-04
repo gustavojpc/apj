@@ -49,11 +49,11 @@
 
 
                     <div class="row">
-                        {!! Form::open(['route' => 'categoria.store', 'method' => 'post', 'files' => true]) !!}
 
                         <div class="col-sm-8">
                             <div class="form-group">
-                                {!! Form::label('nome', 'Nome') !!}
+
+                                {!! Form::label('nome', 'Nome',) !!}
                                 {!! Form::text('nome',null,['class'=> $errors->has('nome') ? 'form-control text-bottom input-error':'form-control text-bottom' ]) !!}
                                 @error('nome')
                                     <p class="help-block">{{ $message }}</p>
