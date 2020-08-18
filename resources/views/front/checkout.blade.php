@@ -86,7 +86,7 @@
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('CEP', 'CEP') !!}
-                    {!! Form::text('CEP',null,['class'=> $errors->has('CEP') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
+                    <input type="text" name="CEP" id="CEP" class=@if($errors->has('CEP')) 'form-control text-bottom input-error'@else 'form-control text-bottom'@endif data-mask="00000-000" reverse="true">
                     @error('CEP')
                         <p class="error-block">{{ $message }}</p>
                     @enderror
@@ -101,7 +101,7 @@
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('telefone', 'Telefone') !!}
-                    {!! Form::text('Telefone',null,['class'=> $errors->has('Telefone') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
+                    <input type="text" name="Telefone" id="Telefone" class=@if($errors->has('Telefone')) 'form-control text-bottom input-error'@else 'form-control text-bottom'@endif data-mask="(00) 0 0000-0000" reverse="true">
                     @error('Telefone')
                         <p class="error-block">{{ $message }}</p>
                     @enderror
@@ -159,7 +159,6 @@
     </div>
   </section>
 @endsection
-
 
   <!--================End Checkout Area =================-->
 
