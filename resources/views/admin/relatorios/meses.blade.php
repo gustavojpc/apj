@@ -102,137 +102,129 @@
 
         <!-- Main content -->
         @if(request('Mes'))
-        <section class="content">
+            <section class="content">
+                <div class="container-fluid">
+                @if($pedidos->isNotEmpty())
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>{{ count($pedidos) }}</h3>
 
-            <!-- Default box -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                    @if($Mes == 1)
-                        Janeiro
-                    @elseif($Mes == 2)
-                        Fevereiro
-                    @elseif($Mes == 3)
-                        Março
-                    @elseif($Mes == 4)
-                        Abril
-                    @elseif($Mes == 5)
-                        Maio
-                    @elseif($Mes == 6)
-                        Junho
-                    @elseif($Mes == 7)
-                        Julho
-                    @elseif($Mes == 8)
-                        Agosto
-                    @elseif($Mes == 9)
-                        Setembro
-                    @elseif($Mes == 10)
-                        Outubro
-                    @elseif($Mes == 11)
-                        Novembro
-                    @elseif($Mes == 12)
-                        Dezembro
+                                    <p>Número de Pedidos</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-bag"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+
+                        <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>{{ $pedidos->sum('total')}} R$</h3>
+
+                                    <p>Total Arrecadado</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-stats-bars"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+
+                        <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h4><strong>{{ $produtomaisvendido[0]->nome }}</strong></h3>
+
+                                    <p>Produto Mais Vendido</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+
+                        <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3>{{ $pedidos->sum('entregue') }}</h3>
+
+                                    <p>Pedidos Entregues</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-pie-graph"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-primary mb-3">
+                            <div class="inner">
+                                <h3>{{ $Diamaisvendido}}°</h3>
+
+                                <p>Dia mais vendido</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-secondary mb-3">
+                            <div class="inner">
+                                <h3>{{ $Vendasdomelhordia }}</h3>
+
+                                <p>N° de Vendas no melhor dia</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-light mb-3">
+                            <div class="inner">
+                                <h3>{{ count($pedidos->groupby('user_id')) }}</h3>
+
+                                <p>N° de Clientes que compraram</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                @else
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Sem pedidos</strong>
+                    </div>
                 @endif
 
-            </h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body p-0">
-                <table class="table table-striped projects">
-                    <thead>
-                        <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 15%">
-                              Total de Vendas
-                            </th>
-                            <th style="width: 15%">
-                             Valor Arrecadado
-                            </th>
-                            <th style="width: 15%">
-                              Vendas Entregues
-                            </th>
-                            <th style="width: 15%">
-                              Dia mais Vendidos
-                            </th>
-                            <th style="width: 15%">
-                                Vendas do melhor dia
-                            </th>
-                            <th style="width: 15%">
-                                Produto Mais Vendido
-                            </th>
-                            <th style="width: 10%">
-                                nº de clientes
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                      @if($pedidos->isNotEmpty())
-
-
-                      <tr>
-                          <td>
-                              #
-                          </td>
-                          <td>
-                              <a>
-                                  {{ count($pedidos) }}
-                              </a>
-                          </td>
-                          <td>
-                              <a>
-                                  {{ $pedidos->sum('total')}}
-                              </a>
-                          </td>
-                          <td>
-                              <a>
-                                  {{ $pedidos->sum('entregue') }}
-                              </a>
-                          </td>
-                          <td>
-                            {{ $Diamaisvendido }}
-                          </td>
-                          <td>
-                              {{ $Vendasdomelhordia }}
-                          </td>
-                          <td>
-                              {{ $queryv[0]->nome }}
-                        </td>
-                        <td>
-                            {{ count($pedidos->groupby('user_id')) }}
-                      </td>
-                      </tr>
-
-                  @else
-                      <div class="alert alert-danger" role="alert">
-                          <strong>Sem pedidos</strong>
-                      </div>
-                  @endif
-
-
-                    </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
 
-          </section>
-          @endif
-          <!-- /.content -->
-        </div>
-
-
-
-
-
+        </section>
+        @endif
+        <!-- /.content -->
+    </div>
 
 @endsection

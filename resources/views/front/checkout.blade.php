@@ -43,10 +43,10 @@
 
                 <div class="col-lg-12 text-bottom">
                     {!! Form::label('endereco', 'Rua') !!}
+                    {!! Form::text('endereco',null,  ['class'=> $errors->has('endereco') ? 'form-control text-bottom input-error':'form-control text-bottom' ]) !!}
                     @error('endereco')
                         <p class="error-block">{{ $message }}</p>
                     @enderror
-                    {!! Form::text('endereco',null,  ['class'=> $errors->has('endereco') ? 'form-control text-bottom input-error':'form-control text-bottom' ]) !!}
                 </div>
 
                 <div class="col-lg-4 text-bottom">
@@ -55,41 +55,41 @@
                 </div>
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('bairro', 'Bairro') !!}
-                    @error('bairro')
-                        <p class="help-block">{{ $message }}</p>
-                    @enderror
                     {!! Form::text('bairro',null,['class'=> $errors->has('bairro') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
+                    @error('bairro')
+                        <p class="error-block">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('cidade', 'Cidade') !!}
-                    @error('cidade')
-                        <p class="help-block">{{ $message }}</p>
-                    @enderror
                     {!! Form::text('cidade',null,['class'=> $errors->has('cidade') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
+                    @error('cidade')
+                        <p class="error-block">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('estado', 'Estado') !!}
-                    @error('estado')
-                        <p class="help-block">{{ $message }}</p>
-                    @enderror
                     {!! Form::text('estado',null,['class'=> $errors->has('estado') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
+                    @error('estado')
+                        <p class="error-block">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('numero', 'Numero') !!}
-                    @error('numero')
-                        <p class="help-block">{{ $message }}</p>
-                    @enderror
                     {!! Form::text('numero',null,['class'=> $errors->has('numero') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
+                    @error('numero')
+                        <p class="error-block">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('CEP', 'CEP') !!}
+                    <input type="text" name="CEP" id="CEP" class=@if($errors->has('CEP')) 'form-control text-bottom input-error'@else 'form-control text-bottom'@endif data-mask="00000-000" reverse="true">
                     @error('CEP')
-                        <p class="help-block">{{ $message }}</p>
+                        <p class="error-block">{{ $message }}</p>
                     @enderror
-                    {!! Form::text('CEP',null,['class'=> $errors->has('CEP') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
                 </div>
 
 
@@ -101,10 +101,10 @@
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('telefone', 'Telefone') !!}
+                    <input type="text" name="Telefone" id="Telefone" class=@if($errors->has('Telefone')) 'form-control text-bottom input-error'@else 'form-control text-bottom'@endif data-mask="(00) 0 0000-0000" reverse="true">
                     @error('Telefone')
-                        <p class="help-block">{{ $message }}</p>
+                        <p class="error-block">{{ $message }}</p>
                     @enderror
-                    {!! Form::text('Telefone',null,['class'=> $errors->has('Telefone') ? 'form-control text-bottom input-error': 'form-control text-bottom' ]) !!}
 
 
                 </div>
@@ -159,7 +159,6 @@
     </div>
   </section>
 @endsection
-
 
   <!--================End Checkout Area =================-->
 

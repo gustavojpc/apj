@@ -41,12 +41,11 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         //
-
         $validator = Validator::make($request->all(), Categoria::$rules, Categoria::$messages)
         ->validate();
         $formInput = $request -> all();
         Categoria::create($formInput);
-        return view('admin.unidades.novo')->with('success', 'Categoria adicionada com sucesso');
+        return view('admin.categoria.novo')->with('success', 'Categoria adicionada com sucesso');
     }
 
     /**

@@ -21,7 +21,7 @@ class CreateEnderecosTable extends Migration
             $table->string('cidade');
             $table->string('estado');
             $table->string('referencia')->nullable();
-            $table->integer('numero');
+            $table->string('numero');
             $table->integer('user_id');
             $table->string('CEP');
             $table->string('Telefone');
