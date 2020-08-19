@@ -42,9 +42,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::patch('/produto/{produto}', 'ProdutosController@update');
     Route::resource('categoria', 'CategoriasController');
     Route::resource('unidade', 'UnidadesController');
-    Route::get('relatorio/vendas', 'RelatoriosController@Vendas');
+    Route::get('relatorio/vendas', 'RelatoriosController@Vesndas');
     Route::get('relatorio/clientes', 'RelatoriosController@Clientes');
     Route::get('relatorio/meses', 'RelatoriosController@Meses');
+    Route::get('relatorio/dashboard', 'RelatoriosController@Dashboard');
     Route::get('pedidos/{type?}', 'PedidosController@Pedidos');
     Route::get('pedidos/{pedido}/entregar', 'PedidosController@Entregar');
 

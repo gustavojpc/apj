@@ -97,6 +97,7 @@ class CarrinhoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request['qty'] = str_replace(['R$','.',','],['','','.'], $request['qty']);
         Cart::update($id,$request->qty);
         return back();
     }

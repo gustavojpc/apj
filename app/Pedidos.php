@@ -31,8 +31,10 @@ class Pedidos extends Model
     public static function Createorder($endereco)
     {
         $user=Auth::user();
+        $total= str_replace(['R$',','],['',''], Cart::total());
         $pedido=$user->Pedidos()->create([
-            'total'=> Cart::total(),
+
+            'total'=> $total,
             'entregue' => 0,
             'endereco_id' => $endereco
         ]);

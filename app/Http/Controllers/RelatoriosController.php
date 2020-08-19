@@ -103,4 +103,12 @@ class RelatoriosController extends Controller
 
         return view('admin.relatorios.meses',compact('pedidos','Mes','Ano', 'Diamaisvendido', 'Vendasdomelhordia', 'produtomaisvendido'));
     }
+
+    public function Dashboard()
+    {
+        $VendaPorDia = Pedidos::select(DB::raw('Date(created_at) as Data'),DB::raw('sum(total) as Total'))
+        ->groupBy(DB::raw('Date(created_at)'))
+        ->get();
+        return view('admin.relatorios.dashboard',compact('VendaPorDia'));
+    }
 }

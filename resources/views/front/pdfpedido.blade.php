@@ -116,7 +116,7 @@
         <tr align="center">
             <th colspan="5" width="75%">Valor do pedido</th>
             @foreach ($pedido as $item)
-                <th  width="25%">R$ {{$item->total}}</th>
+                <th  width="25%">R$ {{number_format($item->total, '2',',', '.')}}</th>
             @endforeach
 
 

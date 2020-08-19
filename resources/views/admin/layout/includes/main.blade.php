@@ -6,6 +6,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>@yield('title')</title>
+  <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- Chartisan -->
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('assets/admin/plugins/fontawesome-free/css/all.min.css') }}">
@@ -159,6 +162,12 @@ to get the desired effect
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('admin/relatorio/dashboard')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                    </a>
+                    </li>
                   <li class="nav-item">
                     <a href="{{url('admin/relatorio/vendas')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
