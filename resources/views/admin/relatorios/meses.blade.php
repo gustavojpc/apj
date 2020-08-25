@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 @extends('admin.layout.includes.main')
 @section('title','Painel Admin | Relatório de venda')
 
@@ -116,9 +117,9 @@
                                     <p>Número de Pedidos</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                    <i class="fas fa-shopping-bag    "></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
                             </div>
                         </div>
                         <!-- ./col -->
@@ -127,14 +128,14 @@
                         <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>{{ $pedidos->sum('total')}} R$</h3>
+                                    <h3>R$ {{ $pedidos->sum('total')}} </h3>
 
                                     <p>Total Arrecadado</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-dollar-sign    "></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
                             </div>
                         </div>
                         <!-- ./col -->
@@ -143,14 +144,13 @@
                         <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h4><strong>{{ $produtomaisvendido[0]->nome }}</strong></h3>
+                                    <h3><strong>{{ $produtomaisvendido[0]->nome }}</strong></h3>
 
                                     <p>Produto Mais Vendido</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-person-add"></i>
+                                    <i class="fas fa-seedling    "></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -164,23 +164,21 @@
                                     <p>Pedidos Entregues</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="fas fa-truck    "></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-primary mb-3">
                             <div class="inner">
-                                <h3>{{ $Diamaisvendido}}°</h3>
+                                <h3>{{ $Diamaisvendido}}</h3>
 
-                                <p>Dia mais vendido</p>
+                                <p>Dia com mais venda</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                                <i class="fas fa-trophy    "></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
 
@@ -192,9 +190,8 @@
                                 <p>N° de Vendas no melhor dia</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                               <i class="fas fa-chart-line    "></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
 
@@ -206,14 +203,36 @@
                                 <p>N° de Clientes que compraram</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
 
                 </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                      <div class="card">
 
+                        <div class="card-body">
+                          <div class="d-flex">
+
+                            <p class="ml-auto d-flex flex-column text-right">
+                              <span class="text-success">
+                                <i class="fas fa-arrow-up"></i> 12.5%
+                              </span>
+                              <span class="text-muted">Since last week</span>
+                            </p>
+                          </div>
+                          <!-- /.d-flex -->
+
+                          <div class="position-relative mb-4">
+                            <div id="chart_div"></div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                </div>
                 @else
                     <div class="alert alert-danger" role="alert">
                         <strong>Sem pedidos</strong>
@@ -228,3 +247,50 @@
     </div>
 
 @endsection
+
+
+<script>
+    google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('date', 'Dia');
+        data.addColumn('number', 'Valor');
+
+        data.addRows([
+            @php
+
+            foreach($VendaPorDia as $Dia){
+
+                echo '[new Date("'.$Dia->Data.'"), '.$Dia->Total.'],';
+
+                }
+            @endphp
+        ]);
+
+
+        var options = {
+          title: 'Valor de venda no mês',
+
+          hAxis: {
+            format: 'd/M',
+            gridlines: {count: 15}
+          },
+          vAxis: {
+            gridlines: {color: 'none'},
+            minValue: 0
+          }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+
+      }
+
+
+
+ </script>

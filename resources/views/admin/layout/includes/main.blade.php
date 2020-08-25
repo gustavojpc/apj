@@ -11,7 +11,7 @@
   <!-- Chartisan -->
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{ asset('assets/admin/plugins/fontawesome-free/css/all.min.css') }}">
+  <script src="https://kit.fontawesome.com/a52957689f.js" crossorigin="anonymous"></script>
   <!-- IonIcons -->
   <link rel="stylesheet" href="{{ asset(' http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
   <!-- Theme style -->
