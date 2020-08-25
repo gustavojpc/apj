@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Categoria;
 use App\Endereco;
 use App\Produto;
+use App\Pedidos;
 use App\User;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -39,12 +40,6 @@ class FrontController extends Controller
             $qtde[$i] = $i;
         }
         return view('front.detalhe',compact('produto','qtde'));
-    }
-    public function minhaconta(){
-        $user = User::where('id',auth()->user()->id)->first();
-        $ultimoendereco=Endereco::where('user_id',auth()->user()->id)
-        ->orderBy('created_at','DESC')->first();
-        return view('front.minhaconta',compact('user','ultimoendereco'));
     }
     public function sobre(){
         return view('front.sobre');

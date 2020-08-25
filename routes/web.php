@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/sobre', 'FrontController@sobre')->name('sobre');
 
 
+
 Route::resource('/carrinho', 'CarrinhoController');
 Route::get('/logout', 'auth\LoginController@logout');
 
@@ -52,10 +53,13 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/entrega', 'CheckoutController@Entrega') ->name('checkout.entrega');
-    Route::get('/minhaconta', 'FrontController@MinhaConta') ->name('minhaconta');
     Route::patch('/produto/editar/{id}', 'UserController@update');
     Route::resource('/carrinho', 'CarrinhoController');
     Route::get('/gerarpdf', 'CheckoutController@GerarPDF');
+    Route::get('minhaconta/pedidos', 'MinhacontaController@pedidos');
+    Route::get('minhaconta/endereco', 'MinhacontaController@endereco');
+    Route::get('minhaconta/alterar', 'MinhacontaController@alterar');
+    // Route::post('endereco.store/{teste}','EnderecoController@store')->name('endereco.store');
 });
 
 //Route::get('/checkout', 'CheckoutController@Passo1');

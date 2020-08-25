@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Boolean;
+
 class EnderecoController extends Controller
 {
     /**
@@ -26,7 +28,7 @@ class EnderecoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
     }
@@ -43,25 +45,32 @@ class EnderecoController extends Controller
     public function store(Request $request)
     {
 
+
         $validator = Validator::make($request->all(), Endereco::$rules, Endereco::$messages)
         ->validate();
         $endereco = Auth::user()->endereco()->create($request->all());
-
-        $id = Pedidos::Createorder($endereco->id);
-        $pedido=Pedidos::where('id',$id)->get();
-        $idpedido=Pedidos::where('id',$id)->first();
         $ultimoendereco=Endereco::where('user_id',auth()->user()->id)
         ->orderBy('created_at','DESC')->first();
-        $itenspedido=DB::table('pedidos_produto')
-        ->join('produtos', 'produto_id', '=', 'produtos.id')
-        ->join('unidades', 'produtos.unidade_id', '=', 'unidades.id')
-        ->where('pedidos_id', $idpedido->id)->get();
-        $pdf = PDF::loadview('front.pdfpedido',compact('pedido','ultimoendereco','itenspedido'));
-        return $pdf ->setPaper('a4')->stream('PedidoAPJ.pdf');
+        if(request('fecharpedido') == 'false'){
+            $id = Pedidos::Createorder($endereco->id);
+            $pedido=Pedidos::where('id',$id)->get();
+            $idpedido=Pedidos::where('id',$id)->first();
+
+            $itenspedido=DB::table('pedidos_produto')
+            ->join('produtos', 'produto_id', '=', 'produtos.id')
+            ->join('unidades', 'produtos.unidade_id', '=', 'unidades.id')
+            ->where('pedidos_id', $idpedido->id)->get();
+            $pdf = PDF::loadview('front.pdfpedido',compact('pedido','ultimoendereco','itenspedido'));
+            return $pdf ->setPaper('a4')->stream('PedidoAPJ.pdf');
+        }
+        else
+        {
+            return back(compact('ultimoendereco'));
+        }
+
         //return redirect('/')->with('success', 'Pedido finalizado com sucesso');
-
-
     }
+
 
     /**
      * Display the specified resource.
@@ -103,8 +112,18 @@ class EnderecoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //
     }
+    // public function criar(Request $request)
+    // {
+    //     //não cria view, mas um novo endereço.
+    //     $validator = Validator::make($request->all(), Endereco::$rules, Endereco::$messages)
+    //     ->validate();
+    //     $endereco = Auth::user()->endereco()->create($request->all());
+    //     $ultimoendereco=Endereco::where('user_id',auth()->user()->id)->orderBy('created_at','DESC')->first();
+    //     return (0);
+    // }
 }

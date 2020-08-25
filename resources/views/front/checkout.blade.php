@@ -84,30 +84,27 @@
                     @enderror
                 </div>
 
-                <div class="col-lg-4 text-bottom">
-                    {!! Form::label('CEP', 'CEP') !!}
-                    <input type="text" name="CEP" id="CEP" class=@if($errors->has('CEP')) 'form-control text-bottom input-error'@else 'form-control text-bottom'@endif data-mask="00000-000" reverse="true">
+                <div class="col-lg-6 text-bottom">
+                    {!! Form::label('CEP', 'CEP*') !!}
+                    {!! Form::text('CEP',null,  ['class'=> $errors->has('endereco') ? 'form-control text-bottom input-error':'form-control text-bottom','data-mask'=>'00000-000','reverse'=>'true','minlength'=>'9']) !!}
                     @error('CEP')
                         <p class="error-block">{{ $message }}</p>
                     @enderror
                 </div>
-
-
 
                 <div class="col-lg-4 text-bottom">
                     {!! Form::label('referencia', 'Ponto de referência') !!}
                     {!! Form::text('referencia',null,['class'=>'form-control']) !!}
                 </div>
 
-                <div class="col-lg-4 text-bottom">
-                    {!! Form::label('telefone', 'Telefone') !!}
-                    <input type="text" name="Telefone" id="Telefone" class=@if($errors->has('Telefone')) 'form-control text-bottom input-error'@else 'form-control text-bottom'@endif data-mask="(00) 0 0000-0000" reverse="true">
-                    @error('Telefone')
+                <div class="col-lg-6 text-bottom">
+                    {!! Form::label('telefone', 'Telefone*') !!}
+                    {!! Form::text('telefone',null,  ['class'=> $errors->has('endereco') ? 'form-control text-bottom input-error':'form-control text-bottom','data-mask'=>'(00) 0 0000-0000','reverse'=>'true','minlength'=>'16']) !!}
+                    @error('telefone')
                         <p class="error-block">{{ $message }}</p>
                     @enderror
-
-
                 </div>
+
                 <div class="col-lg-12">
                     {!! Form::submit('Finalizar pedido',['class'=>'genric-btn primary']) !!}
                 </div>
