@@ -9,7 +9,7 @@
         <link rel="manifest" href="site.webmanifest">
 
 
-		<!-- CSS here -->
+    <!-- CSS here -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
@@ -62,9 +62,7 @@
                                         <ul id="navigation">
                                             <li><a href="{{url('/')}}">Página inicial</a></li>
                                             <li><a href="{{url('/produtos')}}">Loja</a></li>
-                                            <li><a href="Galeria.html">Galeria</a></li>
-
-                                            <li><a href="Galeria.html">Contato</a></li>
+                                            <li><a href="{{ url('minhaconta/pedidos') }}">Minha Conta</a></li>
                                             <li><a href="{{url('/sobre')}}">Sobre</a></li>
                                             @auth
                                                 <li class="show-login"><a href="Galeria.html">{{Auth::user()->name}}</a></li>
@@ -134,24 +132,7 @@
        </div>
         <!-- Header End -->
     </header>
-
-
     @yield('content')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <footer>
 		<!-- Footer Start-->
 		<div class="footer-area footer-padding footer-color">

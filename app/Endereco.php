@@ -14,19 +14,17 @@ class Endereco extends Model
         'cidade'=>'required',
         'estado' => 'required',
         'numero'=>'required| starts_with:0,1,2,3,4,5,6,7,8,9',
-        'CEP' => 'required| numeric',
-        'Telefone' => 'required| numeric'
+        'CEP' => 'required|',
+        'Telefone' => 'required|'
     );
     public static $messages=array(
-        'endereco.required'=>'Campo de endereço é obrigatório',
+        'endereco.required'=>'Campo de rua é obrigatório',
         'bairro.required' => 'Campo de bairro é obrigatório',
         'cidade.required'=>'Campo de cidade é obrigatório',
         'estado.required' => 'Campo de estado é obrigatório',
         'numero.required'=>'Campo de numero é obrigatório',
         'numero.starts_with' => 'Comece com um número!',
         'CEP.required' => 'Campo de CEP é obrigatório',
-        'CEP.numeric' => 'Campo de CEP é numerico',
-        'Telefone.numeric' => 'Campo de Telefone é numerico',
         'Telefone.required' => 'Campo de Telefone é obrigatório'
        );
        public function pedidos(){
