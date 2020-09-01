@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('minhaconta/pedidos', 'MinhacontaController@pedidos');
     Route::get('minhaconta/endereco', 'MinhacontaController@endereco');
     Route::get('minhaconta/alterar', 'MinhacontaController@alterar');
+    Route::post('atualizarperfil', 'UserController@atualizarperfil')->name('atualizarperfil');
     // Route::post('endereco.store/{teste}','EnderecoController@store')->name('endereco.store');
 });
 

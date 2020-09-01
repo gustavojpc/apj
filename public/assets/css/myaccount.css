@@ -1,0 +1,49 @@
+    a
+    {
+        color: black!important;
+    }
+    #div_body
+    {
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    #div_body::-webkit-scrollbar
+    {
+        visibility: hidden;
+    }
+
+    header{
+        background-color: white;
+    }
+    body{
+        background-color: rgba(255, 200, 137, 0.178)!important;
+    }
+    #conteudo
+    {
+        background-color: aliceblue;
+    }
+    #linha
+    {
+        background-color: lightyellow;
+    }
+    #card-header,#card-footer
+    {
+        background-color: rgba(255, 166, 0, 0.787);
+    }
+    #primeiralinha
+    {
+        background-color: rgb(56, 55, 55);
+        color: rgb(202, 199, 199);
+    }
+    @media screen and (max-width:958px){
+        #conteudo
+        {
+            margin-bottom: 80px;
+        }
+        #div_body
+        {
+            height: 170vh;
+
+        }
+
+    }

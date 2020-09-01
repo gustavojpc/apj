@@ -1,10 +1,7 @@
 @extends('front.minhaconta.main')
 @section('title','ADMIN | Minha Conta')
 <style>
-    #div_body
-    {
-        height: 170vh!important;
-    }
+
     #submit-btn
     {
         margin-top: 20px;

@@ -105,7 +105,7 @@
                                                 {{Auth::user()->name}}
                                               </button>
                                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="{{ url('minhaconta') }}">Minha conta</a>
+                                                <a class="dropdown-item" href="{{ url('minhaconta/pedidos') }}">Minha conta</a>
                                                 <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
 
                                               </div>
@@ -197,6 +197,7 @@
          <script src="{{asset('/assets/js/main.js')}}"></script>
          <script src="{{asset('/assets/js/jquery.mask.js')}}"></script>
          <script src="{{asset('/assets/js/jquery-3.5.1.min.js')}}"></script>
+         <script src="{{asset('/assets/js/minhacontacripts.js')}}"></script>
 
      </body>
  </html>

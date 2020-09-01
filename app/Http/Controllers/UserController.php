@@ -57,7 +57,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -86,4 +86,31 @@ class UserController extends Controller
     {
         //
     }
+
+    public function atualizarperfil(Request $request)
+    {
+        $data = $request->all();
+
+        if($data['password'] != null){
+            if($data['password'] == $data['password_confirmation']){
+                $data['password'] = bcrypt($data['password']);
+
+            }
+            else{
+
+                return back()->with('error', 'Ambas as senhas devem concidir...');
+            }
+        }
+        else{
+            unset($data['password']);
+        }
+
+        $update = auth()->user()->update($data);
+
+        if ($update)
+            return back()->with('success', 'Sucesso ao Atualizar');
+
+        return  back()->with('error', 'Falha ao atualizar o perfil...');
+    }
+
 }

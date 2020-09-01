@@ -22,7 +22,8 @@ class MinhacontaController extends Controller
 
     public function alterar()
     {
-        //
+        $user = User::where('id',auth()->user()->id)->first();
+        return view('front.minhaconta.alterar', compact('user'));
     }
 
     public function endereco()
@@ -31,7 +32,5 @@ class MinhacontaController extends Controller
         ->orderBy('created_at','DESC')->first();
         return view('front.minhaconta.endereco', compact('ultimoendereco'));
     }
-
-
 
 }

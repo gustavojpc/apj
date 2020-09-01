@@ -66,7 +66,7 @@
 
                         <h2>É novo aqui?!</h2>
                         <p>Então não perca tempo e faça seu cadastro por aqui!</p>
-                        <a href="#" class="btn_3" id="button_registro">Registrar</a>
+                        <a href="{{ url('register') }}" class="btn_3" id="button_registro">Registrar</a>
                     </div>
                 </div>
             </div>

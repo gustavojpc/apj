@@ -1,10 +1,9 @@
 @extends('front.minhaconta.main')
 @section('title','ADMIN | Minha Conta')
 
-
 @section('conteudo')
     <div class="border border-light" id="conteudo">
-        <table class="table table-striped" style="margin-bottom: 0;">
+        <table class="table table-striped" style="margin-bottom: 0;" id="tabeladepedidos">
             <thead>
                 <tr id="primeiralinha">
                 <th scope="col">Nº do Pedido</th>
@@ -17,8 +16,7 @@
                 @php
                     $index=0;
                 @endphp
-                @foreach($pedidos as $pedido)
-
+                @forelse($pedidos as $pedido)
                     <tr @if($index%2==0)id="linha"@endif>
                         <th scope="row">{{ $pedido->id }}</th>
                         <td>{{ $pedido->created_at->format('d/m/Y')}}</td>
@@ -34,11 +32,13 @@
                     @php
                         $index++;
                     @endphp
-                @endforeach
+
+                @empty
+                    <td class="alert alert-danger" colspan="4"> Não há pedidos</td>
+                @endforelse
             </tbody>
         </table>
     </div>
-
 
 @endsection
 
