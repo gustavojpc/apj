@@ -80,7 +80,7 @@
 
         <div class="col-lg-6 text-bottom">
             {!! Form::label('telefone', 'Telefone*') !!}
-            {!! Form::text('telefone',null,  ['class'=> $errors->has('endereco') ? 'form-control text-bottom input-error':'form-control text-bottom','data-mask'=>'(00) 0 0000-0000','reverse'=>'true','minlength'=>'16']) !!}
+            {!! Form::text('Telefone',null,  ['class'=> $errors->has('endereco') ? 'form-control text-bottom input-error':'form-control text-bottom','data-mask'=>'(00) 0 0000-0000','reverse'=>'true','minlength'=>'16']) !!}
             @error('telefone')
                 <p class="error-block">{{ $message }}</p>
             @enderror

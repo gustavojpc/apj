@@ -48,10 +48,12 @@ class EnderecoController extends Controller
 
         $validator = Validator::make($request->all(), Endereco::$rules, Endereco::$messages)
         ->validate();
+
         $endereco = Auth::user()->endereco()->create($request->all());
         $ultimoendereco=Endereco::where('user_id',auth()->user()->id)
         ->orderBy('created_at','DESC')->first();
-        if(request('fecharpedido') == 'false'){
+        if(request('fecharpedido') == true){
+
             $id = Pedidos::Createorder($endereco->id);
             $pedido=Pedidos::where('id',$id)->get();
             $idpedido=Pedidos::where('id',$id)->first();
@@ -65,7 +67,8 @@ class EnderecoController extends Controller
         }
         else
         {
-            return back(compact('ultimoendereco'));
+
+            return view('front.minhaconta.endereco',compact('ultimoendereco'));
         }
 
         //return redirect('/')->with('success', 'Pedido finalizado com sucesso');
