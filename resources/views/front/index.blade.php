@@ -17,9 +17,9 @@
                 <div class="single-slider slider-height" data-background="none">
                     <div class="container">
                         <div class="row d-flex align-items-center justify-content-between">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
-                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="assets/img/hero/hero_man.png" alt="">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-md-block"  id="div_background_slide">
+                                <div class="hero__img"  data-animation="bounceIn" data-delay=".4s">
+                                    <img src="assets/img/hero/hero_man.png" id='imagem_slide' alt="">
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
@@ -60,7 +60,7 @@
                             @foreach ($chunk as $produto)
 
 
-                            <div class="col-xl-3 col-lg-3 col-md-2">
+                            <div class="col-xl-3 col-lg-3 col-md-6">
                                 <div class="single-product mb-60">
 
                                     <div class="product-caption text-bottom">
@@ -80,7 +80,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="{{route('carrinho.edit',$produto->id)}}" class="button expanded add-to-cart">
+                                    <a href="{{route('carrinho.edit',$produto->id)}}" class="button expanded add-to-cart" id="butao_compra">
                                        Comprar <i class="fas fa-cart-plus    "></i>
                                     </a>
                                 </div>

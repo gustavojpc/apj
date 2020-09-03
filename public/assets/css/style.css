@@ -106,6 +106,13 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+@media only screen and (max-width:991px)
+{
+    #butao_compra
+    {
+        overflow:hidden;
+    }
+}
 
 /* line 78, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_variables.scss */
 .boxed-btn:hover {
@@ -4102,6 +4109,20 @@ input:focus {
   right: 26px;
 }
 
+
+#imagem_slide
+    {
+        block-size: 100%;
+    }
+
+@media only screen and (max-width:768px){
+    #div_background_slide
+    {
+        z-index: -1;
+        height: 354px!important;
+    }
+
+}
 /* line 169, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_h1-hero.scss */
 .slider-active button:hover img {
   opacity: 0;
