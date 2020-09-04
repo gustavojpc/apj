@@ -3,7 +3,9 @@
 
 @section('content')
 
-    @if(Session::has('success'))
+
+    <div class="content-wrapper">
+        @if(Session::has('success'))
         <div class="alert alert-success">
             {{ Session::get('success') }}
             @php
@@ -11,11 +13,11 @@
             @endphp
         </div>
     @endif
-    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
+
               <div class="col-sm-6">
                 <h1>Produto</h1>
               </div>

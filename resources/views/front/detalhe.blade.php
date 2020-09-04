@@ -29,10 +29,11 @@
                     </div>
 
                     {{ Form::open(array('route' => 'carrinho.store')) }}
-                        @if ( $produto->unidade->sigla == "Un")
-                            {!! Form::select('qty',$qtde, 1,['class'=>'select-cart padding-left']) !!}
-                        @else
+                        @if ( $produto->unidade->sigla == "Kg")
                             <input name="qty" type="text" value="1" min="0" max="10" class="select-cart ">
+                        @else
+
+                            {!! Form::select('qty',$qtde, 1,['class'=>'select-cart padding-left']) !!}
                         @endif
 
                          {{$produto->unidade->sigla}}

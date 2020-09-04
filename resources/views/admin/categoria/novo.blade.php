@@ -8,17 +8,25 @@
 
 
     <div class="content-wrapper">
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+                @php
+                    Session::forget('success');
+                @endphp
+            </div>
+        @endif
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Produto</h1>
+                <h1>Categoria</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Produto</li>
+                  <li class="breadcrumb-item active">Categoria</li>
                 </ol>
               </div>
             </div>
@@ -40,10 +48,10 @@
                 </div>
                 <div class="card-body">
                     @if (Request::is('*/editar'))
-                    {!! Form::model($categoria,['method' => 'PATCH', 'url' => 'admin/editar/'.$produto ->id, 'files' => true]) !!}
+                    {!! Form::model($categoria,['method' => 'PATCH', 'url' => 'admin/categoria/'.$categoria ->id, 'files' => true]) !!}
 
                     @else
-                        {!! Form::open(['route' => 'produto.store', 'method' => 'post', 'files' => true]) !!}
+                        {!! Form::open(['route' => 'categoria.store', 'method' => 'post', 'files' => true]) !!}
 
                     @endif
 

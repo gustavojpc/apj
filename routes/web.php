@@ -41,7 +41,11 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']], function () {
     Route::get('/produto/{produto}/editar', 'ProdutosController@editar');
     Route::get('/produto/{produto}/estado', 'ProdutosController@mudarestado');
     Route::patch('/produto/{produto}', 'ProdutosController@update');
+    Route::patch('/categoria/{categoria}', 'CategoriasController@update');
+    Route::patch('/unidade/{unidade}', 'UnidadesController@update');
     Route::resource('categoria', 'CategoriasController');
+    Route::get('/categoria/{categoria}/editar', 'CategoriasController@edit');
+    Route::get('/unidade/{unidade}/editar', 'UnidadesController@edit');
     Route::resource('unidade', 'UnidadesController');
     Route::get('relatorio/vendas', 'RelatoriosController@Vendas');
     Route::get('relatorio/clientes', 'RelatoriosController@Clientes');

@@ -50,13 +50,11 @@
                                 <div class="product_count">
                                 {!! Form::open(['route' => ['carrinho.update',$cartItem->rowId] , 'method' => 'PUT']) !!}
 
-                                    @if ( $cartItem->options->size == "Un")
-
+                                    @if ( $cartItem->options->size == "Kg")
+                                        <input name="qty" type="text" value="{{$cartItem->qty}}" min="0" max="10">
+                                    @else
 
                                         {!! Form::select('qty',$qtde, $cartItem->qty,['class'=>'select-cart']) !!}
-
-                                    @else
-                                        <input name="qty" type="text" value="{{$cartItem->qty}}" min="0" max="10">
                                     @endif
 
 

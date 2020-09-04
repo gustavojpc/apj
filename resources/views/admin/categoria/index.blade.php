@@ -77,7 +77,7 @@
 
                         <td class="project-actions text-right">
 
-                            <a class="btn btn-info btn-sm" href="unidade/{{$categoria->id}}/editar">
+                            <a class="btn btn-info btn-sm" href="categoria/{{$categoria->id}}/editar">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Editar

@@ -22,6 +22,7 @@
         "lucascudo/laravel-pt-br-localization": "^1.1",
         "mehdi-fathi/eloquent-filter": "1.6.9",
         "spatie/laravel-query-builder": "^2.8",
+        "spatie/laravel-sluggable": "^2.5",
         "tucker-eric/eloquentfilter": "^2.3"
     },
     "require-dev": {

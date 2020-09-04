@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+  <link rel="shortcut icon" href="{{ url('assets/img/logo','adminfavicon.ico')}}" />
 </head>
 <!--
 BODY TAG OPTIONS:

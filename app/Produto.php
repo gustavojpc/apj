@@ -4,15 +4,24 @@ namespace App;
 
 use Doctrine\Inflector\Rules\English\Rules;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Produto extends Model
 {
     //
+    use HasSlug;
     protected $fillable=['nome','valor','descricao','categoria_id','image','unidade_id','visivel'];
 
     protected $attributes = [
         'visivel' => 1,
      ];
+     public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('nome')
+            ->saveSlugsTo('slug');
+    }
 
     public static $rules=array(
         'nome'=>'required| unique:App\Produto,nome',

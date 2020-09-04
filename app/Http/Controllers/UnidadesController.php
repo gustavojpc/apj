@@ -45,7 +45,8 @@ class UnidadesController extends Controller
         ->validate();
         $formInput = $request -> all();
         Unidade::create($formInput);
-        return view('admin.unidades.novo')->with('success', 'Unidade adicionada com sucesso');
+        session()->flash('success', 'Unidade adicionada com sucesso');
+        return view('admin.unidades.novo');
     }
 
     /**
@@ -68,6 +69,9 @@ class UnidadesController extends Controller
     public function edit($id)
     {
         //
+        $unidade = Unidade::findOrFail($id);
+
+        return view('admin.unidades.novo',compact('unidade'));
     }
 
     /**
@@ -80,6 +84,12 @@ class UnidadesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $unidade = Unidade::findOrFail($id);
+        $validator = Validator::make($request->all(), Unidade::$rules, Unidade::$messages)
+        ->validate();
+        $unidade->update($request->all());
+        session()->flash('success', 'Unidade editada com sucesso');
+        return view('admin.unidades.novo');
     }
 
     /**

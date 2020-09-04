@@ -61,16 +61,16 @@
 
                         <div class="row">
 
-                            @forelse ($produtos->chunk(4) as $chunk)
-                                @foreach ($chunk as $produto)
+                            @forelse ($produtos as $produto)
+
 
                                 <div class="col-lg-4 col-sm-3">
                                     <div class="single_product_item text-center">
-                                        <h3> <a href="produtos/detalhe/{{$produto->id}}">{{$produto->nome}}</a> </h3>
+                                        <h3> <a href="produtos/detalhe/{{$produto->slug}}">{{$produto->nome}}</a> </h3>
                                         <img src="{{ url('images', $produto->image) }}" alt="" class="img-fluid" style="height: 150px">
 
                                         <p>R$ {{$produto->valor}}</p>
-                                        <a href="produtos/detalhe/{{$produto->id}}" class="button expanded add-to-cart">
+                                        <a href="produtos/detalhe/{{$produto->slug}}" class="button expanded add-to-cart">
                                             Ver produto
                                         </a>
                                     </div>
@@ -79,7 +79,7 @@
 
 
 
-                            @endforeach
+
 
                             @empty
                                 <div class="row sem-resultado">
@@ -103,7 +103,7 @@
                                             <img src="{{ url('images', $produto->image) }}" alt="" class="img-fluid" style="height: 150px">
 
                                             <p>R$ {{$produto->valor}}</p>
-                                            <a href="produtos/detalhe/{{$produto->id}}" class="button expanded add-to-cart">
+                                            <a href="produtos/detalhe/{{$produto->slug}}" class="button expanded add-to-cart">
                                                 Ver produto
                                             </a>
                                         </div>

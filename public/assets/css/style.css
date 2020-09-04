@@ -3615,11 +3615,7 @@ input:focus {
 /* line 163, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right li {
   padding-left: 20px;
-<<<<<<< Updated upstream
   padding-top: -30px;
-=======
-  padding-top: 30px;
->>>>>>> Stashed changes
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {

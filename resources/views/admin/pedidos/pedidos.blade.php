@@ -1,5 +1,5 @@
 @extends('admin.layout.includes.main')
-@section('title','ADMIN | Pedidos')
+@section('title','ADMIN | Pedidos ('.count($pedidos).')' )
 <style>
     table{
         width: 100%;

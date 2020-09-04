@@ -45,7 +45,8 @@ class CategoriasController extends Controller
         ->validate();
         $formInput = $request -> all();
         Categoria::create($formInput);
-        return view('admin.categoria.novo')->with('success', 'Categoria adicionada com sucesso');
+        session()->flash('success', 'Categoria adicionada com sucesso');
+        return view('admin.categoria.novo');
     }
 
     /**
@@ -81,6 +82,9 @@ class CategoriasController extends Controller
     public function edit($id)
     {
         //
+        $categoria = Categoria::findOrFail($id);
+
+        return view('admin.categoria.novo',compact('categoria'));
     }
 
     /**
@@ -93,6 +97,9 @@ class CategoriasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $categoria = Categoria::findOrFail($id);
+        $categoria ->update($request->all());
+        return back()->with('success', 'Categoria editada com sucesso');
     }
 
     /**

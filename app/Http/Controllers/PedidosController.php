@@ -27,8 +27,9 @@ class PedidosController extends Controller
 
         }
         $pedidos = Pedidos::ofData($data)->ofFilters()->paginate(20);
+        $naoentregues = Pedidos::ofData($data)->ofFilters()->paginate(20)->where('entregue','0');
 
-        return view('admin.pedidos.pedidos',compact('pedidos','data','status','cliente'));
+        return view('admin.pedidos.pedidos',compact('pedidos','data','status','cliente','naoentregues'));
     }
 
     public function Entregar($id)

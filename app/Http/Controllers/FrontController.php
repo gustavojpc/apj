@@ -15,12 +15,12 @@ class FrontController extends Controller
 {
     //
     public function index(){
-        $produtos=Produto::all();
+        $produtos=Produto::where('visivel','1')->take(4)->get();
         return view('front.index',compact('produtos'));
     }
     public function produtos(Request $request){
 
-        $produtos=Produto::get();
+        $produtos=Produto::where('visivel','1')->get();
         $SemProdutos=Produto::get();
         $categorias=Categoria::all();
         $filtercategorias = null;
@@ -31,11 +31,11 @@ class FrontController extends Controller
         if(request('categorias_id')){
             $filtercategorias = request('categorias_id');
         }
-        $produtos = Produto::ofFilters()->paginate(20);
+        $produtos = Produto::ofFilters()->where('visivel','1')->paginate(20);
         return view('front.loja',compact('produtos','categorias','filternome','filtercategorias','SemProdutos'));
     }
-    public function detalhe($id){
-        $produto = Produto::findOrFail($id);
+    public function detalhe($slug){
+        $produto = Produto::where('slug',$slug)->first();
         for ($i=1; $i <= 10; $i++) {
             $qtde[$i] = $i;
         }
