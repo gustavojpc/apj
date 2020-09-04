@@ -48,8 +48,10 @@ class CarrinhoController extends Controller
         //
 
         $produto = Produto::find($request->id);
+        $request['qty'] = str_replace(['R$','.',','],['','.','.'], $request['qty']);
 
         Cart::add($request->id,$produto->nome,$request->qty,$produto->valor,['size' => $produto->unidade->sigla]);
+
         return redirect()->route('carrinho.index');
     }
 
@@ -97,7 +99,7 @@ class CarrinhoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request['qty'] = str_replace(['R$','.',','],['','','.'], $request['qty']);
+        $request['qty'] = str_replace(['R$','.',','],['','.','.'], $request['qty']);
         Cart::update($id,$request->qty);
         return back();
     }

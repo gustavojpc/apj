@@ -24,7 +24,7 @@ Route::post('/produtos/filtrar', 'ProdutosController@Filtrar');
 Route::get('produtos/detalhe/{id}', 'FrontController@detalhe')->name('detalhe_produto');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'FrontController@index')->name('home');
 
 Route::get('/sobre', 'FrontController@sobre')->name('sobre');
 

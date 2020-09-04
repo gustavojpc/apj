@@ -9102,6 +9102,11 @@ input:focus {
   font-weight: 400;
   margin-top: 22px;
   line-height: 1.5;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
   margin-bottom: 25px;
   font-family: "Poppins", sans-serif;
 }
