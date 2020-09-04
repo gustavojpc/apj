@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.2.5",
         "barryvdh/laravel-dompdf": "^0.8.6",
-        "consoletvs/charts": "7.*",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
@@ -20,6 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.1",
+        "lucascudo/laravel-pt-br-localization": "^1.1",
         "mehdi-fathi/eloquent-filter": "1.6.9",
         "spatie/laravel-query-builder": "^2.8",
         "tucker-eric/eloquentfilter": "^2.3"

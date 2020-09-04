@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/themify-icon.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
+    <link rel="shortcut icon" href="{{ url('assets/img/logo','favicon.ico')}}" />
 
 
    </head>
@@ -33,7 +33,11 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
+<<<<<<< Updated upstream
                     <img src="{{ url('assets/img/logo/logo.png') }}" alt="">
+=======
+                    <img src="{{ url('assets/img/logo','logo.png')}}" alt="">
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -51,7 +55,11 @@
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
                                 <div class="logo">
+<<<<<<< Updated upstream
                                   <a href="{{url('/')}}"><img src="{{ url('assets/img/logo/logo.png') }}" alt=""></a>
+=======
+                                  <a href="{{url('/')}}"><img src="{{ url('assets/img/logo','logo.png')}}" width="150px" alt=""></a>
+>>>>>>> Stashed changes
 
                                 </div>
                             </div>
@@ -116,7 +124,15 @@
                                               </button>
                                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item" href="{{ url('minhaconta/pedidos') }}">Minha conta</a>
+<<<<<<< Updated upstream
                                                 <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+=======
+                                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+>>>>>>> Stashed changes
 
                                               </div>
                                             @endauth
@@ -151,30 +167,24 @@
 
 				</div>
 				<div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-3">
+                    <div class="col-xl-3 col-lg-3 col-sm-3">
                         <div style="padding-top: 15px; ">
+<<<<<<< Updated upstream
                             <img src="{{ url('assets/img/logo/logo.png') }} " height="50px" alt="">
+=======
+                            <img src="{{ url('assets/img/logo','logo.png')}}"  height="50px" alt="">
+>>>>>>> Stashed changes
                         </div>
 
                     </div>
-					<div class="col-xl-6 col-lg-6 col-md-6">
+					<div class="col-xl-6 col-lg-6 col-sm-3">
                         <div class="footer-copy-right">
                     Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos direitos reservados | APJ
                         </div>
 
 
 					</div>
-					<div class="col-xl-3 col-lg-3 col-md-3">
-                        <div class="footer-copy-right f-right">
-                            <!-- social -->
-                            <div class="footer-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-behance"></i></a>
-                                <a href="#"><i class="fas fa-globe"></i></a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
 
 			</div>

@@ -18,7 +18,7 @@
         <!-- Content Header (Page header) -->
             <section class="content-header">
             <div class="container-fluid">
-                <form action="{{ url('admin/relatorio/meses')}}">
+                <form action="{{ url('admin/relatorio/dashboard')}}">
                     @csrf
                 <div class="row mb-2">
 
@@ -58,7 +58,7 @@
                                                 <option selected> Dezembro</option>
                                         @endif
                                     @else
-                                        <option selected value="{{ date('m') }}"> {{ date('F') }}</option>
+                                        <option selected value="{{ date('m') }}"> {{ strftime('%B', strtotime('today')) }}</option>
                                     @endif
                                     <option value="1">Janeiro</option>
                                     <option value="2">Fevereiro</option>
@@ -95,7 +95,12 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Buscar</button>
+
+
                     </div>
+
+
+
                 </div>
             </form>
             </div><!-- /.container-fluid -->
@@ -214,15 +219,7 @@
                       <div class="card">
 
                         <div class="card-body">
-                          <div class="d-flex">
 
-                            <p class="ml-auto d-flex flex-column text-right">
-                              <span class="text-success">
-                                <i class="fas fa-arrow-up"></i> 12.5%
-                              </span>
-                              <span class="text-muted">Since last week</span>
-                            </p>
-                          </div>
                           <!-- /.d-flex -->
 
                           <div class="position-relative mb-4">
@@ -232,6 +229,20 @@
                         </div>
                       </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+
+                          <div class="card-body">
+
+                            <!-- /.d-flex -->
+
+                            <div class="position-relative mb-4">
+                              <div id="categoria"></div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </div>
                 @else
                     <div class="alert alert-danger" role="alert">
@@ -252,6 +263,7 @@
 <script>
     google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawBasic);
 
       function drawChart() {
 
@@ -269,7 +281,9 @@
                 }
             @endphp
         ]);
-
+        var formatter = new google.visualization.NumberFormat(
+        {prefix: 'R$', negativeColor: 'red', negativeParens: true});
+    formatter.format(data, 1);
 
         var options = {
           title: 'Valor de venda no mês',
@@ -289,7 +303,50 @@
         chart.draw(data, options);
 
 
+
       }
+
+
+
+function drawBasic() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Categoria');
+      data.addColumn('number', 'Valor total vendido');
+
+
+
+      data.addRows([
+            @php
+
+            foreach($vendaporcategoria as $Categoria){
+
+                echo '["'.$Categoria->Nome.'", '.$Categoria->Valor.'],';
+
+                }
+            @endphp
+        ]);
+        var formatter = new google.visualization.NumberFormat(
+        {prefix: 'R$', negativeColor: 'red', negativeParens: true});
+    formatter.format(data, 1); // Apply formatter to second column
+      var options = {
+        title: 'Venda por categoria',
+        hAxis: {
+          title: 'Categorias'
+
+        },
+        vAxis: {
+          title: 'Valor da venda'
+        }
+      };
+
+      var chart = new google.visualization.ColumnChart(
+        document.getElementById('categoria'));
+
+      chart.draw(data, options);
+    }
+
+
 
 
 

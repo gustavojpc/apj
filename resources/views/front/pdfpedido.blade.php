@@ -26,7 +26,7 @@
     <table width="100%" style="padding-top: 20px; padding-bottom: 40px;">
         <thead>
             <tr>
-                <th width="33%"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" /></th>
+                <th width="33%"><img src="{{ url('assets/img/logo.jpg') }}" alt=""></th>
                 <th width="33%"><h2>Resumo do pedido</h2></th>
                 @foreach ($pedido as $item)
             <td align="right" width="33%">Pedido numero: {{$item->id}}</td>

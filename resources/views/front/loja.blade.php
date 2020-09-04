@@ -66,7 +66,7 @@
 
                                 <div class="col-lg-4 col-sm-3">
                                     <div class="single_product_item text-center">
-                                        <h3> <a href="single-product.html">{{$produto->nome}}</a> </h3>
+                                        <h3> <a href="produtos/detalhe/{{$produto->id}}">{{$produto->nome}}</a> </h3>
                                         <img src="{{ url('images', $produto->image) }}" alt="" class="img-fluid" style="height: 150px">
 
                                         <p>R$ {{$produto->valor}}</p>

@@ -25,13 +25,7 @@
     width: 1.125em;
     height: 0.875em;
     margin: 0.188em 0 0 0.438em; }
-    .slicknav_menu .slicknav_icon:before {
-      background: transparent;
-      width: 1.125em;
-      height: 0.875em;
-      display: block;
-      content: "";
-      position: absolute; }
+
   .slicknav_menu .slicknav_no-text {
     margin: 0; }
   .slicknav_menu .slicknav_icon-bar {
@@ -102,9 +96,9 @@
     padding: 0;
     margin: 0 0 0 20px; }
   .slicknav_nav .slicknav_row {
-    
+
     /* padding: 5px 10px; */
-    margin: 2px 5px; 
+    margin: 2px 5px;
   }
     .slicknav_nav .slicknav_row:hover {
       -webkit-border-radius: 6px;
@@ -241,14 +235,6 @@
 	padding: 5px;
 	right: 5px;
 	margin-top: -5px;
-}
-.slicknav_menu .slicknav_icon {
-	margin-right: 6px;
-	margin-top: 3px;
-	position: relative;
-	right: 5px;
-	top: -5px;
-	padding-bottom: 3px;
 }
 .slicknav_nav .slicknav_arrow {
 	float: right;

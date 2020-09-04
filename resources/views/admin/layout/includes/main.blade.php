@@ -180,22 +180,20 @@ to get the desired effect
                       <p>Clientes</p>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="{{url('admin/relatorio/meses')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Resultados Mensais</p>
-                    </a>
-                  </li>
+
 
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a href="{{url('/logout')}}" class="nav-link">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                     <i class="fa fa-power-off" aria-hidden="true"></i>
                     <p>
                     Logout
                     </p>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </a>
             </li>
         </ul>

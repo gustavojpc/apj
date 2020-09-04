@@ -6,7 +6,7 @@
 <div class="product_image_area">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-7">
+        <div class="col-lg-6">
 
 
             <div class="single-product">
