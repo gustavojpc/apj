@@ -33,7 +33,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt="">
+                    <img src="{{ url('assets/img/logo/logo.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
                                 <div class="logo">
-                                  <a href="{{url('/')}}"><img src="https://apjuntos.org.br/wp-content/uploads/2016/05/cropped-logo-apj-wp-glow.png" alt=""></a>
+                                  <a href="{{url('/')}}"><img src="{{ url('assets/img/logo/logo.png') }}" alt=""></a>
 
                                 </div>
                             </div>
@@ -62,26 +62,36 @@
                                         <ul id="navigation">
                                             <li><a href="{{url('/')}}">Página inicial</a></li>
                                             <li><a href="{{url('/produtos')}}">Loja</a></li>
-                                            <li><a href="{{ url('minhaconta/pedidos') }}">Minha Conta</a></li>
+
                                             <li><a href="{{url('/sobre')}}">Sobre</a></li>
                                             @auth
+                                                <li><a href="{{ url('minhaconta/pedidos') }}">Minha Conta</a></li>
                                                 <li class="show-login"><a href="Galeria.html">{{Auth::user()->name}}</a></li>
                                                 <ul class="submenu">
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="cart.html">Card</a></li>
+
+                                                    <li><a class="dropdown-item" href="{{ url('minhaconta/pedidos') }}">Minha conta</a></li>
+                                                    <li><a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+
 
                                                 </ul>
                                             @endauth
 
                                             @guest
-
+                                                <li><a href="{{route('login')}}">Login</a></li>
+                                                <li><a href="{{route('register')}}">Cadastrar</a></li>
                                             @endguest
+
+
 
 
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                             <div class="col-xl-6 col-lg-3 col-md-3 col-sm-3 fix-card">
                                 <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between padding-modify">
 
@@ -106,7 +116,7 @@
                                               </button>
                                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item" href="{{ url('minhaconta/pedidos') }}">Minha conta</a>
-                                                <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
+                                                <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 
                                               </div>
                                             @endauth
@@ -143,7 +153,7 @@
 				<div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3">
                         <div style="padding-top: 15px; ">
-                            <img src="assets/img/logo/logo.png" alt="">
+                            <img src="{{ url('assets/img/logo/logo.png') }} " height="50px" alt="">
                         </div>
 
                     </div>

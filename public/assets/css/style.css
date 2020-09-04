@@ -3615,6 +3615,7 @@ input:focus {
 /* line 163, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-bottom .header-right li {
   padding-left: 20px;
+  padding-top: -30px;
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
@@ -3796,7 +3797,7 @@ input:focus {
 
 /* line 321, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_headerMenu.scss */
 .header-area .slicknav_btn {
-  top: -30px;
+  top: -60px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
